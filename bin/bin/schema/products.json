@@ -1,0 +1,138 @@
+{
+  "model": "products",
+  "columns": [
+    {
+      "name": "name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "description",
+      "dataType": "text",
+      "inputType": "textarea",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 1000
+    },
+    {
+      "name": "price",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true,
+      "greaterThan": 10,
+      "max": 100000
+    },
+    {
+      "name": "discount",
+      "dataType": "number",
+      "inputType": "number",
+      "required": false,
+      "minValue": 1,
+      "max": 100,
+      "positive": true
+    },
+    {
+      "name": "category",
+      "dataType": "enum",
+      "inputType": "select",
+      "required": true,
+      "options": [
+        "Electronics",
+        "Clothing",
+        "Furniture",
+        "Books",
+        "Toys",
+        "Sports"
+      ]
+    },
+    {
+      "name": "role",
+      "dataType": "enum",
+      "inputType": "select",
+      "required": true,
+      "options": [
+        "Consumer",
+        "Brand"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "maxDate": "10-10-2023",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "phone",
+      "dataType": "number",
+      "inputType": "text",
+      "regex": "/^\\d{3}-\\d{3}-\\d{4}$/",
+      "required": true
+    },
+    {
+      "name": "email",
+      "dataType": "email",
+      "inputType": "email",
+      "required": true,
+      "update": false
+    },
+    {
+      "name": "password",
+      "dataType": "password",
+      "inputType": "password",
+      "required": true,
+      "minLength": 8,
+      "maxLength": 100,
+      "list": false
+    },
+    {
+      "name": "confirm_password",
+      "dataType": "password",
+      "inputType": "password",
+      "required": true,
+      "minLength": 8,
+      "maxLength": 100,
+      "equalTo": "password",
+      "list": false
+    },
+    {
+      "name": "active",
+      "dataType": "boolean",
+      "inputType": "checkbox",
+      "required": true
+    },
+    {
+      "name": "image",
+      "dataType": "string",
+      "inputType": "file",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "weight",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true,
+      "minValue": 0.01
+    },
+    {
+      "name": "inStock",
+      "dataType": "boolean",
+      "inputType": "checkbox",
+      "required": true
+    },
+    {
+      "name": "tags",
+      "dataType": "array",
+      "inputType": "text",
+      "required": false,
+      "maxLength": 50
+    }
+  ]
+}

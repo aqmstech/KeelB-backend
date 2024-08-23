@@ -1,0 +1,2 @@
+export const OTP_EXPIRY_IN_MINUTES = 60 * 60000
+export const OTP_EXPIRY_ON_VALIDATION = 30 * 60000;

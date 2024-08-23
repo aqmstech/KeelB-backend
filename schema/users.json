@@ -1,0 +1,65 @@
+{
+  "model": "Users",
+  "columns": {
+    "gender": {
+      "key": "gender",
+      "dataType": "number",
+      "ref": {
+        "collection": "genders",
+        "column": "type"
+      },
+      "inputType": "select",
+      "required": true
+    },
+    "email": {
+      "dataType": "string",
+      "inputType": "email",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255,
+      "unique": true
+    },
+    "firstName": {
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "lastName": {
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "fullName": {
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "password": {
+      "dataType": "string",
+      "inputType": "password",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "profileImage": {
+      "dataType": "string",
+      "inputType": "file",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    "coverImage": {
+      "dataType": "string",
+      "inputType": "file",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    }
+  }
+}

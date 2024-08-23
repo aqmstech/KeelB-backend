@@ -1,0 +1,40 @@
+import express from "express";
+import {AdminAuthMiddleware} from '../../middlewares/api/auth';
+
+const routes = express.Router();
+import {{{module_name}}Controller} from "./{{module_name_lower}}Controller";
+import {
+    add{{module_name}}Validator,
+    update{{module_name}}Validator,
+    getAll{{module_name}}Validator
+} from "./{{module_name_lower}}Validator";
+
+import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+
+// const {{module_name_lower}}Controller = new {{module_name}}Controller(); // Create an instance of Controller
+
+// routes.use(AdminAuthMiddleware);
+
+routes.get('/', validateRequestParams(getAll{{module_name}}Validator), (req: any, res: any) => {
+    const {{module_name_lower}}Controller = new {{module_name}}Controller();
+    {{module_name_lower}}Controller.getAll(req, res)
+});
+routes.get('/:id', (req: any, res: any) => {
+    const {{module_name_lower}}Controller = new {{module_name}}Controller();
+    {{module_name_lower}}Controller.getById(req, res)
+});
+routes.post('/', validateRequestBody(add{{module_name}}Validator), (req: any, res: any) => {
+    const {{module_name_lower}}Controller = new {{module_name}}Controller();
+    {{module_name_lower}}Controller.create(req, res)
+});
+routes.put('/:id', validateRequestBody(update{{module_name}}Validator), (req: any, res: any) => {
+    const {{module_name_lower}}Controller = new {{module_name}}Controller();
+    {{module_name_lower}}Controller.update(req, res)
+});
+routes.delete('/:id', (req: any, res: any) => {
+    const {{module_name_lower}}Controller = new {{module_name}}Controller();
+    {{module_name_lower}}Controller.delete(req, res)
+});
+
+
+export const router = routes;

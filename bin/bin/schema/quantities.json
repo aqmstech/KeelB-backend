@@ -1,0 +1,23 @@
+{
+  "model": "quantities",
+  "columns": [
+    {
+      "name": "quantity",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "productId",
+      "dataType": "string",
+      "inputType": "string",
+      "required": true
+    },
+    {
+      "name": "userId",
+      "dataType": "string",
+      "inputType": "string",
+      "required": true
+    }
+  ]
+}

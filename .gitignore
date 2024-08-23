@@ -1,0 +1,7 @@
+logs
+vault.json
+.env
+.env.json
+package-lock.json
+build
+node_modules/

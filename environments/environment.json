@@ -1,0 +1,23 @@
+{
+  "env": "local",
+  "defaultDB": true,
+  "logger": "sentry",
+  "delaySart": 2000,
+  "config": {
+    "PORT": 8000,
+    "AllowCors": false,
+    "GracefullShutdown": true,
+    "VAULT": false,
+    "ServiceName": "test",
+    "QUEUE": ""
+  },
+  "vault": {
+    "configType": "",
+    "protocol": "http",
+    "host": "",
+    "port": 8200,
+    "login": "",
+    "keyname": "",
+    "apiversion": "v1"
+  }
+}
