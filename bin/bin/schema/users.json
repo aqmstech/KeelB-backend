@@ -1,0 +1,38 @@
+{
+  "model": "Users",
+  "columns": [
+    {
+      "name": "name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "email",
+      "dataType": "email",
+      "inputType": "email",
+      "required": true,
+      "minLength": 10,
+      "maxLength": 255
+    },
+    {
+      "name": "description",
+      "dataType": "text",
+      "inputType": "textarea",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 1000
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "maxDate": "10-30-2023",
+      "required": true,
+      "add": false,
+      "update": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "env": "production",
+  "defaultDB": false,
+  "logger": "sentry",
+  "delaySart": 2000,
+  "config": {
+    "PORT": 8000,
+    "AllowCors": false,
+    "GracefullShutdown": true,
+    "VAULT": false,
+    "ServiceName": "",
+    "QUEUE": false,
+    "services": {
+      "product": {
+        "protocol": "",
+        "host": "",
+        "port": ""
+      }
+    }
+  },
+  "vault": {
+    "configType" : "",
+    "protocol": "",
+    "host": "",
+    "port": 8200,
+    "login": "",
+    "keyname": "",
+    "apiversion": "v1"
+  }
+}

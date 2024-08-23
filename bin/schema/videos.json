@@ -1,0 +1,78 @@
+{
+  "model": "videos",
+  "columns": [
+
+    {
+      "name": "category_id",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "title",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "thumbnail",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 0,
+      "maxLength": 255
+    },
+    {
+      "name": "url",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 0,
+      "maxLength": 255
+    },
+    {
+      "name": "duration",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "is_feature",
+      "dataType": "boolean",
+      "required": false
+    },
+    {
+      "name": "status",
+      "dataType": "boolean",
+      "required": false
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "updatedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    },
+    {
+      "name": "deletedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    }
+  ]
+}

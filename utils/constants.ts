@@ -1,0 +1,11 @@
+export const JWT_SECRET = 'secretkey';
+export const JWT_EXPIRY = '1d';
+export const ASC = 1;
+export const DESC = -1;
+export const DEFAULT_ORDER: object = {createdAt: -1};
+export const PER_PAGE = 20;
+export const PAGE = 1;
+export const OTP_TTL = 5;
+export const VAT = 5;
+export const APPLE = "https://theservtech.com/emailtempletes/cancer-app-email/img/apple-app-icon.png";
+export const GOOGLE = "https://theservtech.com/emailtempletes/cancer-app-email/img/google-app-icon.png";

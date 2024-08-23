@@ -1,0 +1,67 @@
+{
+  "model": "city",
+  "columns": [
+    {
+      "name": "countryId",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "regionId",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "subRegionId",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "stateId",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "population",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "updatedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    }
+  ]
+}

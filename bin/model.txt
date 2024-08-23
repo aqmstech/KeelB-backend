@@ -1,0 +1,25 @@
+import {BaseModel} from "../../models/baseModel";
+import { {{module_name}}Interface} from "./{{module_name_lower}}Interface";
+
+export class {{module_name}}Model extends BaseModel {
+    protected fillables: any = [];
+
+    constructor() {
+        super('{{module_name_lower}}', []);
+        this.fillables = {{columnsFillables}}
+    }
+
+    public sanitize(data: any): {{module_name}}Interface {
+                const keys = Object.keys(data);
+                const columns = this.fillables.map((column: any) => column.column);
+                let newData:any = {}
+                // Check if all the required keys are present in the data
+                for (const key of columns) {
+                    if (keys.includes(key)) {
+                        newData[key] = data[key];
+                    }
+                }
+
+                return newData as {{module_name}}Interface;
+            }
+}

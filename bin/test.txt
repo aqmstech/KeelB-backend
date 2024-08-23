@@ -1,0 +1,54 @@
+  describe('get all {{module_name}}', function () {
+    it('should return all {{module_name}}', function (done) {
+            requestWithSupertest.get('/api/v1/{{module_name_lower}}')
+            .expect(200)
+            .end(done)
+      
+    });
+  });
+
+
+  describe('add {{module_name}}', function () {
+    it('should add a {{module_name}}', function (done) {
+
+            let dataToBeAdded = {
+                "name":"Name",
+                "description":"Description"
+            }
+
+            requestWithSupertest.post('/api/v1/{{module_name_lower}}')
+            .send(dataToBeAdded)
+            .expect(200)
+            .end(done)
+      
+    });
+  });
+
+   describe('single {{module_name}}', function () {
+    it('should return a {{module_name}} by id',function (done) {
+
+            {{module_name}}Model.findOne({},'',function(err,data){
+                requestWithSupertest.get(`/api/v1/{{module_name_lower}}/${data._id.toHexString()}`)
+                .expect(200)
+                .end(done)
+            });
+            
+    });
+  });
+
+  describe('update single {{module_name}}', function () {
+    it('should update a {{module_name}} by id',function (done) {
+
+            let dataToBeUpdated = {
+                name:"Updated Name"
+            }
+
+            {{module_name}}Model.findOne({},'',function(err,data){
+                requestWithSupertest.patch(`/api/v1/{{module_name_lower}}/${data._id.toHexString()}`)
+                .send(dataToBeUpdated)
+                .expect(200)
+                .end(done)
+            });
+            
+    });
+  });
