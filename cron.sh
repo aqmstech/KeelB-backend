@@ -1,1 +1,0 @@
-node ./build/crons/cron.js

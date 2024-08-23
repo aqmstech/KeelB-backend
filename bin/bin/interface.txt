@@ -1,1 +1,0 @@
-export interface {{module_name}}Interface {{schema}}

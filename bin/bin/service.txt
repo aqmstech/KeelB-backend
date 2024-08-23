@@ -1,9 +1,0 @@
-import { {{module_name}}Model} from './{{module_name_lower}}Model';
-import {BaseService} from "../../services/api/baseService";
-
-export class {{module_name}}Service extends BaseService {
-    constructor() {
-        const {{module_name_lower}}Model = new {{module_name}}Model();
-        super( {{module_name_lower}}Model);
-    }
-}
