@@ -3846,6 +3846,1008 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "restaurants",
+      "item": [
+        {
+          "name": "Add restaurants",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"f6Ug\",\"cover_image\":\"YoaE\",\"description\":\"1r1H\",\"address?\":\"5opz\",\"user_id?\":\"sXmx\",\"min_price\":\"0000-00-00\",\"max_price\":\"0000-00-00\",\"avg_rating?\":\"0000-00-00\",\"menu?\":null,\"currency_type\":\"VfT1\",\"location\":null,\"cuisines?\":[],\"meal_type?\":[],\"ambiance?\":[],\"categories?\":[],\"timings?\":[],\"accepted_payment_types?\":\"cash\",\"service_types?\":\"dine in\",\"service_time?\":null,\"isFeatured?\":true,\"isVerified?\":true,\"status?\":\"open\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new restaurants",
+            "url": {
+              "raw": "{{baseUrl}}restaurants",
+              "host": [
+                "{{baseUrl}}restaurants"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete restaurants",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restaurants/1",
+              "host": [
+                "{{baseUrl}}restaurants"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single restaurants",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restaurants/1",
+              "host": [
+                "{{baseUrl}}restaurants"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All restaurants",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restaurants",
+              "host": [
+                "{{baseUrl}}restaurants"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"Zszm\",\"cover_image\":\"ibjw\",\"description\":\"2W4J\",\"address?\":\"bcmx\",\"user_id?\":\"o50D\",\"min_price\":\"0000-00-00\",\"max_price\":\"0000-00-00\",\"avg_rating?\":\"0000-00-00\",\"menu?\":null,\"currency_type\":\"mTYl\",\"location\":null,\"cuisines?\":[],\"meal_type?\":[],\"ambiance?\":[],\"categories?\":[],\"timings?\":[],\"accepted_payment_types?\":\"cash\",\"service_types?\":\"dine in\",\"service_time?\":null,\"isFeatured?\":true,\"isVerified?\":true,\"status?\":\"open\",\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update restaurants",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"NJbU\",\"cover_image\":\"gjAx\",\"description\":\"RPF0\",\"address?\":\"rD4O\",\"user_id?\":\"v2BY\",\"min_price\":\"0000-00-00\",\"max_price\":\"0000-00-00\",\"avg_rating?\":\"0000-00-00\",\"menu?\":null,\"currency_type\":\"4zYU\",\"location\":null,\"cuisines?\":[],\"meal_type?\":[],\"ambiance?\":[],\"categories?\":[],\"timings?\":[],\"accepted_payment_types?\":\"cash\",\"service_types?\":\"dine in\",\"service_time?\":null,\"isFeatured?\":true,\"isVerified?\":true,\"status?\":\"open\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}restaurants/1",
+              "host": [
+                "{{baseUrl}}restaurants"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "reviews",
+      "item": [
+        {
+          "name": "Add reviews",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"reviewer_name?\":\"KhDd\",\"images?\":[],\"description\":\"0v2b\",\"rating\":\"0000-00-00\",\"user_id?\":\"G8SE\",\"restaurant_id?\":\"KSO0\",\"status?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new reviews",
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete reviews",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}reviews/1",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single reviews",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}reviews/1",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All reviews",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}reviews",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"reviewer_name?\":\"NMRM\",\"images?\":[],\"description\":\"lnoZ\",\"rating\":\"0000-00-00\",\"user_id?\":\"Y2KD\",\"restaurant_id?\":\"7L27\",\"status?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update reviews",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"reviewer_name?\":\"7s7Z\",\"images?\":[],\"description\":\"qC3t\",\"rating\":\"0000-00-00\",\"user_id?\":\"09Pp\",\"restaurant_id?\":\"WnyR\",\"status?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}reviews/1",
+              "host": [
+                "{{baseUrl}}reviews"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "Add categories",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"w6FS\",\"image\":\"1OmY\",\"parent_id?\":\"AC8e\",\"status\":true,\"type?\":\"food\",\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new categories",
+            "url": {
+              "raw": "{{baseUrl}}categories",
+              "host": [
+                "{{baseUrl}}categories"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete categories",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}categories/1",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single categories",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}categories/1",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All categories",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}categories",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"Qk6l\",\"image\":\"43vN\",\"parent_id?\":\"6ebx\",\"status\":true,\"type?\":\"food\",\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update categories",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"6zI8\",\"image\":\"8eVz\",\"parent_id?\":\"JwSa\",\"status\":true,\"type?\":\"food\",\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}categories/1",
+              "host": [
+                "{{baseUrl}}categories"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "userFavorites",
+      "item": [
+        {
+          "name": "Add userFavorites",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id?\":\"6cZW\",\"restaurant_id?\":\"2Wfb\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new userFavorites",
+            "url": {
+              "raw": "{{baseUrl}}userfavorites",
+              "host": [
+                "{{baseUrl}}userfavorites"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete userFavorites",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userfavorites/1",
+              "host": [
+                "{{baseUrl}}userfavorites"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single userFavorites",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userfavorites/1",
+              "host": [
+                "{{baseUrl}}userfavorites"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All userFavorites",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userfavorites",
+              "host": [
+                "{{baseUrl}}userfavorites"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"user_id?\":\"HQvL\",\"restaurant_id?\":\"28yf\",\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update userFavorites",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id?\":\"HmQ4\",\"restaurant_id?\":\"0IKq\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}userfavorites/1",
+              "host": [
+                "{{baseUrl}}userfavorites"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "recentSearches",
+      "item": [
+        {
+          "name": "Add recentSearches",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id\":\"pDuK\",\"keyword\":\"3pG6\",\"module?\":\"restaurants\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new recentSearches",
+            "url": {
+              "raw": "{{baseUrl}}recentsearches",
+              "host": [
+                "{{baseUrl}}recentsearches"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete recentSearches",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}recentsearches/1",
+              "host": [
+                "{{baseUrl}}recentsearches"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single recentSearches",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}recentsearches/1",
+              "host": [
+                "{{baseUrl}}recentsearches"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All recentSearches",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}recentsearches",
+              "host": [
+                "{{baseUrl}}recentsearches"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"user_id\":\"8KgY\",\"keyword\":\"2ih4\",\"module?\":\"restaurants\",\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update recentSearches",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"user_id\":\"UUQj\",\"keyword\":\"TWJJ\",\"module?\":\"restaurants\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}recentsearches/1",
+              "host": [
+                "{{baseUrl}}recentsearches"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "userRestaurantSuggestions",
+      "item": [
+        {
+          "name": "Add userRestaurantSuggestions",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name?\":\"psfe\",\"location?\":null,\"address\":\"v9gH\",\"phone\":\"4WfLDYbcykxd\",\"user_id?\":\"WK51\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new userRestaurantSuggestions",
+            "url": {
+              "raw": "{{baseUrl}}userrestaurantsuggestions",
+              "host": [
+                "{{baseUrl}}userrestaurantsuggestions"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete userRestaurantSuggestions",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userrestaurantsuggestions/1",
+              "host": [
+                "{{baseUrl}}userrestaurantsuggestions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single userRestaurantSuggestions",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userrestaurantsuggestions/1",
+              "host": [
+                "{{baseUrl}}userrestaurantsuggestions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All userRestaurantSuggestions",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}userrestaurantsuggestions",
+              "host": [
+                "{{baseUrl}}userrestaurantsuggestions"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name?\":\"uxc5\",\"location?\":null,\"address\":\"ZppF\",\"phone\":\"USPDUO5RUxEz\",\"user_id?\":\"nE65\",\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update userRestaurantSuggestions",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name?\":\"RoAk\",\"location?\":null,\"address\":\"Teq7\",\"phone\":\"hjcJ7muChWHt\",\"user_id?\":\"DJHh\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}userrestaurantsuggestions/1",
+              "host": [
+                "{{baseUrl}}userrestaurantsuggestions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }

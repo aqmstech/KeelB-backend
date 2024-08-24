@@ -1,0 +1,78 @@
+{
+  "model": "reviews",
+  "columns": [
+
+    {
+      "name": "reviewer_name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "images",
+      "dataType": "array",
+      "inputType": "text",
+      "required": false
+    },
+    {
+      "name": "description",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2
+    },
+    {
+      "name": "rating",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "user_id",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "restaurant_id",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "status",
+      "dataType": "boolean",
+      "required": false
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "updatedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    },
+    {
+      "name": "deletedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    }
+  ]
+}

@@ -76,7 +76,7 @@ export class UserCardsModel extends BaseModel {
             }
             data = await this.collection.find(filter).sort(order).skip(pagination.skip).limit(pagination.limit).toArray();
             return Utils.Pagination(data, page, perPage, parseInt(total), this?.collectionName || 'data');
-        } catch (error: any) {
+        } catch (error) {
             console.log(error);
             throw new Error(error);
         }

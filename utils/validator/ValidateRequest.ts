@@ -4,6 +4,8 @@ import { Request, Response, NextFunction } from 'express';
 declare module 'express' {
   interface Request {
     value?: any;
+    body?: any;
+    query?: any;
   }
 }
 
@@ -38,6 +40,7 @@ export function validateRequestBody(schema: Joi.ObjectSchema) {
 
 export function validateRequestParams(schema: Joi.ObjectSchema) {
   return (req: Request, res: Response, next: NextFunction) => {
+    console.log(req.query,"req.query")
     const result = schema.validate(req.query, {
       abortEarly: false,
     });

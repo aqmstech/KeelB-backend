@@ -29,7 +29,7 @@ export abstract class Mail {
       if (!validated) throw new Error(`Validation Not Performed : ${message}\n ${JSON.stringify(data, undefined, 4)}`);
       if (validated.errored) throw new Error(`Invalid Schema For Sending Mail : ${message}\n ${JSON.stringify(validated, undefined, 4)}`);
       else */ await RMQ.PublishMessageConfirm('smtp', { msg: message, data: data });
-    } catch (error: any) {
+    } catch (error) {
       throw error;
     }
   }
