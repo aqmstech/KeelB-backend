@@ -101,9 +101,9 @@ export class HTTPServer {
         this.server.app.use("/api/v1/cities", CityRouter.router) 
         
         this.server.app.use("/api/v1/notifications", NotificationsRouter.router)
-        this.server.app.use("/api/v1/payment", PaymentRouter.router)
-        this.server.app.use("/api/v1/donation", DonationRouter.router)
-        this.server.app.use("/api/v1/card", UserCardsRouter.router)
+        // this.server.app.use("/api/v1/payment", PaymentRouter.router)
+        // this.server.app.use("/api/v1/donation", DonationRouter.router)
+        // this.server.app.use("/api/v1/card", UserCardsRouter.router)
         this.server.app.use("/api/v1/contact-us", ContactUsRouter.router)
         this.server.app.use("/api/v1/categories", CategoriesRouter.router)
         this.server.app.use("/api/v1/recentsearches", RecentSearchesRouter.router)

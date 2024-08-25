@@ -7,7 +7,7 @@ import {
     addUserRestaurantSuggestionsValidator,
     updateUserRestaurantSuggestionsValidator,
     getAllUserRestaurantSuggestionsValidator
-} from "./userRestaurantSuggestionsValidator";
+} from "./userrestaurantsuggestionsValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
 import requireUser from "../../controllers/global/requiredUser";
