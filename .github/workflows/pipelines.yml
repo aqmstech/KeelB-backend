@@ -32,6 +32,9 @@ jobs:
           ssh -i ~/.ssh/id_rsa $EC2_USER@$MACHINE_IP << EOF
             cd /home/ec2-user/KeelB-backend
 
+            # Pull the latest changes from the staging branch
+            git fetch origin && git reset --hard origin/staging
+
             # Install dependencies if needed
             npm install
 
