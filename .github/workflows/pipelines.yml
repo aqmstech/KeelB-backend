@@ -1,0 +1,43 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          MACHINE_IP: ${{ secrets.MACHINE_IP }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan $MACHINE_IP >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: SSH into EC2 instance and run commands
+        env:
+          MACHINE_IP: ${{ secrets.MACHINE_IP }}
+          EC2_USER: ec2-user  # Or set directly as 'ubuntu' if fixed
+        run: |
+          ssh -i ~/.ssh/id_rsa $EC2_USER@$MACHINE_IP << EOF
+            cd /home/ec2-user/KeelB-backend
+
+            # Install dependencies if needed
+            npm install
+
+            # Compile the application
+            npm run compile
+
+            # Restart the application using PM2
+            pm2 restart all
+          EOF
