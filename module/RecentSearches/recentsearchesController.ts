@@ -50,7 +50,7 @@ export class RecentSearchesController extends BaseController {
     };
 
 
-    protected async deleteAll(req: any, res: any) {
+     async deleteAll(req: any, res: any) {
         try {
             const result = await this.service.deleteAll(req, res);
             return res.status(result.status_code).send(result.body);

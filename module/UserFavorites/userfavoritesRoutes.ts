@@ -7,7 +7,7 @@ import {
     addUserFavoritesValidator,
     updateUserFavoritesValidator,
     getAllUserFavoritesValidator
-} from "./userFavoritesValidator";
+} from "./userfavoritesValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
 import requireUser from "../../controllers/global/requiredUser";

@@ -7,7 +7,7 @@ import {
     addRecentSearchesValidator,
     updateRecentSearchesValidator,
     getAllRecentSearchesValidator
-} from "./recentSearchesValidator";
+} from "./recentsearchesValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
 import requireUser from "../../controllers/global/requiredUser";
