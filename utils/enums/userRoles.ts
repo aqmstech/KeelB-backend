@@ -1,6 +1,6 @@
 enum UserRoles {
-    TRAINER = 30,
-    ADMIN = 20,
+    RESTAURANT = 20,
+    ADMIN = 30,
     USER = 10
 }
 

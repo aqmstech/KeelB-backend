@@ -44,7 +44,7 @@ export class NotificationsService extends BaseService {
             let data =req.body
             data['createdAt'] = new Date().toString();
             const sanitizeData = this.model.sanitize(data)
-            let  inserteedId :any = null
+            let  insertedId :any = null
             let record: any = null
             let notification_payload : NotificationTopicPayloadCustom = {
                 topic:sanitizeData.topic,
@@ -69,10 +69,10 @@ export class NotificationsService extends BaseService {
 
             if(sanitizeData.receiver_id != undefined || sanitizeData.receiver_id != null){
                 sanitizeData.receiver_id=new ObjectId(sanitizeData.receiver_id)
-                inserteedId = await this.model.Add(sanitizeData)
+                insertedId = await this.model.Add(sanitizeData)
             }else{
                 sanitizeData.receiver_id=new ObjectId(req?.auth?._id)
-                inserteedId = await this.model.Add(sanitizeData)
+                insertedId = await this.model.Add(sanitizeData)
                 let users = await this.authModel.List({deletedAt:null},DEFAULT_ORDER,0,0,true)
 
                 if(users?.length > 0){
@@ -101,8 +101,8 @@ export class NotificationsService extends BaseService {
 
 
 
-            if(inserteedId){
-                record = await this.model.GetById(inserteedId);
+            if(insertedId){
+                record = await this.model.GetById(insertedId);
             }
 
 

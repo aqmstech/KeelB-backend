@@ -27,12 +27,17 @@ import * as SubregionsRouter from '../module/_Subregions/subregionsRoutes'
 import * as CountryRouter from '../module/_Country/countryRoutes' 
 import * as StatesRouter from '../module/_States/statesRoutes' 
 import * as CityRouter from '../module/_City/cityRoutes'
-import * as VideosRouter from '../module/Videos/videosRoutes'
 import * as NotificationsRouter from '../module/Notifications/notificationsRoutes'
 import * as PaymentRouter from '../module/Payments/paymentRoutes'
 import * as DonationRouter from '../module/Donations/donationsRoutes'
 import * as UserCardsRouter from '../module/UserCards/usercardsRoutes'
 import * as ContactUsRouter from '../module/ContactUs/contactusRoutes'
+import * as RecentSearchesRouter from '../module/RecentSearches/recentsearchesRoutes'
+import * as UserRestaurantSuggestionsRouter from '../module/UserRestaurantSuggestions/userrestaurantsuggestionsRoutes'
+import * as CategoriesRouter from '../module/Categories/categoriesRoutes'
+import * as UserfavoritesRouter from '../module/UserFavorites/userfavoritesRoutes'
+import * as RestaurantsRouter from '../module/Restaurants/restaurantsRoutes'
+import * as ReviewsRouter from '../module/Reviews/reviewsRoutes'
 import * as DashboardRouter from '../module/Dashboard/dashboardRoutes'
 
 import * as http from 'http';
@@ -94,12 +99,18 @@ export class HTTPServer {
         this.server.app.use("/api/v1/countries", CountryRouter.router) 
         this.server.app.use("/api/v1/states", StatesRouter.router) 
         this.server.app.use("/api/v1/cities", CityRouter.router) 
-        this.server.app.use("/api/v1/videos", VideosRouter.router)
+        
         this.server.app.use("/api/v1/notifications", NotificationsRouter.router)
         this.server.app.use("/api/v1/payment", PaymentRouter.router)
         this.server.app.use("/api/v1/donation", DonationRouter.router)
         this.server.app.use("/api/v1/card", UserCardsRouter.router)
         this.server.app.use("/api/v1/contact-us", ContactUsRouter.router)
+        this.server.app.use("/api/v1/categories", CategoriesRouter.router)
+        this.server.app.use("/api/v1/recentsearches", RecentSearchesRouter.router)
+        this.server.app.use("/api/v1/userfavorites", UserfavoritesRouter.router)
+        this.server.app.use("/api/v1/restaurants", RestaurantsRouter.router)
+        this.server.app.use("/api/v1/reviews", ReviewsRouter.router)
+        this.server.app.use("/api/v1/userrestaurantsuggestions", UserRestaurantSuggestionsRouter.router)
 
 
 

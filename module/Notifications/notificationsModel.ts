@@ -123,7 +123,7 @@ export class NotificationsModel extends BaseModel {
             const data = await this.collection.aggregate(aggregationPipeline).toArray();
             return Utils.CustomPagination(data, page, perPage, parseInt(total), this?.collectionName || 'data', {unread_count: totalUnread});
 
-        } catch (error: any) {
+        } catch (error) {
             console.log(error);
             throw new Error(error);
         }

@@ -101,17 +101,18 @@ export class AuthService extends BaseService {
 
             let otp = Utils.OTPGenerator();
 
-            if (email) {
-                const stripe_customer: any = await StripeService.addCustomer({
-                    email: email,
-                });
-                if (stripe_customer?.id) {
-                    additionalFields.stripe_customer_id = stripe_customer.id;
-                }else{
-                    additionalFields.stripe_customer_id = null;
-                }
-            }
-            additionalFields.subscribed_topics = ['video','general']
+            // if (email) {
+            //     const stripe_customer: any = await StripeService.addCustomer({
+            //         email: email,
+            //     });
+            //     if (stripe_customer?.id) {
+            //         additionalFields.stripe_customer_id = stripe_customer.id;
+            //     }else{
+            //         additionalFields.stripe_customer_id = null;
+            //     }
+            // }
+            //
+            // additionalFields.subscribed_topics = ['video','general']
 
             const myUser: AuthInterface = {
                 firstName,
@@ -159,14 +160,14 @@ export class AuthService extends BaseService {
                 //     "registration-mail"
                 // );
 
-                await Mail.sendEmail(
-                    req.body.email,
-                    "Verify your account",
-                    { otp: otp ,
-                        user:user?.fullName || 'User'},
-                    "verify_account_template",
-                    "SendMessage"
-                );
+                // await Mail.sendEmail(
+                //     req.body.email,
+                //     "Verify your account",
+                //     { otp: otp ,
+                //         user:user?.fullName || 'User'},
+                //     "verify_account_template",
+                //     "SendMessage"
+                // );
             }
 
             const userDevice: UserdevicesInterface = {
@@ -260,7 +261,7 @@ export class AuthService extends BaseService {
             let filteredProperties = CustomOmit(user, ["password", "otpInfo"]);
 
             return { success: true, user: filteredProperties };
-        } catch (error: any) {
+        } catch (error) {
             console.log(error)
             return { success: false, message: error.message };
         }
@@ -270,16 +271,16 @@ export class AuthService extends BaseService {
         try {
             const { email, role, pushNotification, phone, additionalFields, firstName, lastName, profileImage, fullName, coverImage, address, coordinates, authType, clientId }: any = payload
 
-            if (email) {
-                const stripe_customer: any = await StripeService.addCustomer({
-                    email: email,
-                });
-                if (stripe_customer?.id) {
-                   additionalFields.stripe_customer_id = stripe_customer?.id;
-                }else{
-                    additionalFields.stripe_customer_id = null;
-                }
-            }
+            // if (email) {
+            //     const stripe_customer: any = await StripeService.addCustomer({
+            //         email: email,
+            //     });
+            //     if (stripe_customer?.id) {
+            //        additionalFields.stripe_customer_id = stripe_customer?.id;
+            //     }else{
+            //         additionalFields.stripe_customer_id = null;
+            //     }
+            // }
             let newUser: any = await this.authModel.Add({
                 email,
                 isSocial: true,
@@ -317,7 +318,7 @@ export class AuthService extends BaseService {
             });
 
             return user
-        } catch (error: any) {
+        } catch (error) {
             console.log(error)
             throw new Error(error)
         }
@@ -359,21 +360,21 @@ export class AuthService extends BaseService {
 
                 let token = encrypt(token_payload, options);
 
-                if (user.additionalFields.stripe_customer_id == null && user.additionalFields.stripe_customer_id == undefined ) {
-                    const stripe_customer: any = await StripeService.addCustomer({
-                        email: user.email,
-                    });
-                    if (stripe_customer?.id) {
-                        let objUserId = new ObjectId(user._id);
-                        user.additionalFields.stripe_customer_id = stripe_customer?.id;
-                        await this.authModel.Update(objUserId, {
-                            additionalFields:user.additionalFields,
-                            updatedAt: new Date()
-                        });
-
-
-                    }
-                }
+                // if (user.additionalFields.stripe_customer_id == null && user.additionalFields.stripe_customer_id == undefined ) {
+                //     const stripe_customer: any = await StripeService.addCustomer({
+                //         email: user.email,
+                //     });
+                //     if (stripe_customer?.id) {
+                //         let objUserId = new ObjectId(user._id);
+                //         user.additionalFields.stripe_customer_id = stripe_customer?.id;
+                //         await this.authModel.Update(objUserId, {
+                //             additionalFields:user.additionalFields,
+                //             updatedAt: new Date()
+                //         });
+                //
+                //
+                //     }
+                // }
 
                 let response: any = Utils.getResponse(
                     true,
@@ -437,7 +438,7 @@ export class AuthService extends BaseService {
                 address: string;
             } = req.body;
 
-            additionalFields.subscribed_topics = ['video']
+            // additionalFields.subscribed_topics = ['video']
             email = email.toLowerCase()
 
             if (!('pushNotification' in req.body)) {
@@ -572,19 +573,19 @@ export class AuthService extends BaseService {
 
                 let user_data: any = await this.authModel.GetOne(filter);
 
-                if (user_data.additionalFields.stripe_customer_id == null && user_data.additionalFields.stripe_customer_id == undefined ) {
-                    const stripe_customer: any = await StripeService.addCustomer({
-                        email: user.email,
-                    });
-                    if (stripe_customer?.id) {
-                        let objUserId = new ObjectId(user._id);
-                        user_data.additionalFields.stripe_customer_id = stripe_customer?.id;
-                        await this.authModel.Update(objUserId, {
-                            additionalFields:user_data.additionalFields,
-                            updatedAt: new Date()
-                        });
-                    }
-                }
+                // if (user_data.additionalFields.stripe_customer_id == null && user_data.additionalFields.stripe_customer_id == undefined ) {
+                //     const stripe_customer: any = await StripeService.addCustomer({
+                //         email: user.email,
+                //     });
+                //     if (stripe_customer?.id) {
+                //         let objUserId = new ObjectId(user._id);
+                //         user_data.additionalFields.stripe_customer_id = stripe_customer?.id;
+                //         await this.authModel.Update(objUserId, {
+                //             additionalFields:user_data.additionalFields,
+                //             updatedAt: new Date()
+                //         });
+                //     }
+                // }
 
                 let filteredProperties = CustomOmit(user_data, ["password", "otpInfo",]);
 

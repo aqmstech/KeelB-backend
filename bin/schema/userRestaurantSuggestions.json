@@ -1,0 +1,66 @@
+{
+  "model": "userRestaurantSuggestions",
+  "columns": [
+
+    {
+      "name": "name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "location",
+      "dataType": "object",
+      "required": false
+    },
+    {
+      "name": "address",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2
+    },
+    {
+      "name": "phone",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 10,
+      "maxLength": 255
+    },
+    {
+      "name": "user_id",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "updatedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    },
+    {
+      "name": "deletedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    }
+  ]
+}

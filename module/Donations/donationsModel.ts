@@ -179,7 +179,7 @@ export class DonationsModel extends BaseModel {
             const data = await this.collection.aggregate(aggregationPipeline).toArray();
             const total_donated_amount = await this.collection.aggregate(aggregationTotalAmountPipeline).toArray();
             return Utils.CustomPagination(data, page, perPage, parseInt(total), this?.collectionName || 'data', {total_donated_amount: total_donated_amount[0]?.totalAmount || 0});
-        } catch (error: any) {
+        } catch (error) {
             console.log(error);
             throw new Error(error);
         }
@@ -207,7 +207,7 @@ export class DonationsModel extends BaseModel {
 
             // Return the total paid amount
             return result[0]?.totalPaidAmount || 0;
-        } catch (error: any) {
+        } catch (error) {
             console.log(error);
             throw new Error(error);
         }

@@ -38,7 +38,7 @@ export abstract class Notification {
                     "message": "Notification Sent",
                     "data": {}
                 }
-            } catch (error: any) {
+            } catch (error) {
                 console.log(error?.response?.data);
                 return {
                     "status": error?.response?.status,
@@ -47,7 +47,7 @@ export abstract class Notification {
                 }
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.log(error?.response?.data);
             return {
                 "status": error?.response?.status,
@@ -87,7 +87,7 @@ export abstract class Notification {
                         }
                     }
                 }
-            } catch (error: any) {
+            } catch (error) {
                 console.log(error?.response?.data);
                 return {
                     status_code:  500,
@@ -100,7 +100,7 @@ export abstract class Notification {
                 }
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.log(error?.response?.data);
             return {
                 status_code:  500,
@@ -136,7 +136,7 @@ export abstract class Notification {
                 }
             }
         }
-        catch(error:any){
+        catch(error){
             console.log(error?.response);
             return {
                 status_code:  500,
@@ -179,7 +179,7 @@ export abstract class Notification {
                     "message": "Notification Sent",
                     "data": {}
                 }
-            } catch (error: any) {
+            } catch (error) {
                 console.log(error?.response?.data);
                 return {
                     "status": error?.response?.status,
@@ -188,7 +188,7 @@ export abstract class Notification {
                 }
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.log(error?.response?.data);
             return {
                 "status": error?.response?.status,
@@ -202,7 +202,7 @@ export abstract class Notification {
     public static async sendNotificationTopicCustom(notification: NotificationTopicPayloadCustom): Promise<NotificationResponse> {
 
         try {
-            const PROJECT_ID = 'lee-charles';
+            const PROJECT_ID = 'keelb-e759c';
             const HOST = 'fcm.googleapis.com';
             const PATH = 'https://'+ HOST +'/v1/projects/' + PROJECT_ID + '/messages:send';
             const access_token: any = await this.getAccessToken();
@@ -247,7 +247,7 @@ export abstract class Notification {
                     "message": "Notification Sent",
                     "data": {}
                 }
-            } catch (error: any) {
+            } catch (error) {
                 console.log(error,"err in service");
                 return {
                     "status": error?.response?.status,
@@ -256,7 +256,7 @@ export abstract class Notification {
                 }
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.log(error,"err in service");
             return {
                 "status": error?.response?.status,
@@ -268,10 +268,9 @@ export abstract class Notification {
     }
 
     public static async getAccessToken() {
-        const key: any = await Utils.Loadfile(`\\assets/lee-charles-235953a34a2a.json`);
-        const PROJECT_ID = 'lee-charles';
-        const HOST = 'fcm.googleapis.com';
-        const PATH = '/v1/projects/' + PROJECT_ID + '/messages:send';
+        // const key: any = await Utils.Loadfile(`\\assets/lee-charles-235953a34a2a.json`);
+        const conf: any = await Utils.LoadEnv();
+        const key :any = conf.NOTIFICATION.FIREBASE
         const MESSAGING_SCOPE = 'https://www.googleapis.com/auth/firebase.messaging';
         const SCOPES = [MESSAGING_SCOPE];
         return new Promise(function(resolve, reject) {

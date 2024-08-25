@@ -1,0 +1,187 @@
+{
+  "model": "restaurants",
+  "columns": [
+
+    {
+      "name": "name",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "cover_image",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "description",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2
+    },
+    {
+      "name": "address",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2
+    },
+    {
+      "name": "user_id",
+      "dataType": "string",
+      "inputType": "text",
+      "required": false,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "min_price",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "max_price",
+      "dataType": "number",
+      "inputType": "number",
+      "required": true
+    },
+    {
+      "name": "avg_rating",
+      "dataType": "number",
+      "inputType": "number",
+      "required": false
+    },
+    {
+      "name": "menu",
+      "dataType": "object",
+      "required": false
+    },
+    {
+      "name": "currency_type",
+      "dataType": "string",
+      "inputType": "text",
+      "required": true,
+      "minLength": 2,
+      "maxLength": 255
+    },
+    {
+      "name": "location",
+      "dataType": "object",
+      "required": true
+    },
+    {
+      "name": "cuisines",
+      "dataType": "array",
+      "inputType": "text",
+      "required": false,
+      "maxLength": 50
+    },
+    {
+      "name": "meal_type",
+      "dataType": "array",
+      "inputType": "text",
+      "required": false,
+      "maxLength": 50
+    },
+    {
+      "name": "ambiance",
+      "dataType": "array",
+      "inputType": "text",
+      "required": false,
+      "maxLength": 50
+    },
+    {
+      "name": "categories",
+      "dataType": "array",
+      "inputType": "object",
+      "required": false,
+      "maxLength": 50
+    },
+    {
+      "name": "timings",
+      "dataType": "array",
+      "inputType": "object",
+      "required": false,
+      "maxLength": 7
+    },
+    {
+      "name": "accepted_payment_types",
+      "dataType": "enum",
+      "inputType": "select",
+      "required": false,
+      "options": [
+        "cash",
+        "card"
+      ]
+    },
+    {
+      "name": "service_types",
+      "dataType": "enum",
+      "inputType": "select",
+      "required": false,
+      "options": [
+        "dine in",
+        "dine in/delivery",
+        "delivery"
+      ]
+    },
+    {
+      "name": "service_time",
+      "dataType": "object",
+      "required": false
+    },
+    {
+      "name": "isFeatured",
+      "dataType": "boolean",
+      "inputType": "checkbox",
+      "required": false
+    },
+    {
+      "name": "isVerified",
+      "dataType": "boolean",
+      "inputType": "checkbox",
+      "required": false
+    },
+    {
+      "name": "status",
+      "dataType": "enum",
+      "inputType": "select",
+      "required": false,
+      "options": [
+        "open",
+        "close"
+      ]
+    },
+    {
+      "name": "createdAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": true,
+      "add": false,
+      "update": false
+    },
+    {
+      "name": "updatedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    },
+    {
+      "name": "deletedAt",
+      "dataType": "date",
+      "inputType": "date",
+      "required": false,
+      "add": true,
+      "update": true
+    }
+  ]
+}
