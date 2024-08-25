@@ -8,7 +8,14 @@ export class CategoriesController extends BaseController {
     }
 
     async getAll(req: any, res: any) {
-        return super.getAll(req, res, req.params, req.params.filter || {});
+        let param = req.query
+        let filter :any ={}
+
+        if (param.keyword !== undefined) {
+            const escapedTitle = param.keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
+            filter.name = { $regex: new RegExp(`^${escapedTitle}`, 'i') };
+        }
+        return super.getAll(req, res, req.query, filter || {});
     };
 
     async getById(req: any, res: any) {

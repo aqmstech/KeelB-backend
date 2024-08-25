@@ -10,10 +10,11 @@ import {
 } from "./userFavoritesValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+import requireUser from "../../controllers/global/requiredUser";
 
 // const userfavoritesController = new UserFavoritesController(); // Create an instance of Controller
 
-// routes.use(AdminAuthMiddleware);
+routes.use(requireUser);
 
 routes.get('/', validateRequestParams(getAllUserFavoritesValidator), (req: any, res: any) => {
     const userfavoritesController = new UserFavoritesController();

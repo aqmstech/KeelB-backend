@@ -10,10 +10,11 @@ import {
 } from "./userRestaurantSuggestionsValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+import requireUser from "../../controllers/global/requiredUser";
 
 // const userrestaurantsuggestionsController = new UserRestaurantSuggestionsController(); // Create an instance of Controller
 
-// routes.use(AdminAuthMiddleware);
+routes.use(requireUser);
 
 routes.get('/', validateRequestParams(getAllUserRestaurantSuggestionsValidator), (req: any, res: any) => {
     const userrestaurantsuggestionsController = new UserRestaurantSuggestionsController();

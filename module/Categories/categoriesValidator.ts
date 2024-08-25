@@ -38,6 +38,7 @@ export const getAllCategoriesValidator = Joi.object().keys(
   updatedAt: Joi.date(),
   deletedAt: Joi.date(),
   keyword: Joi.any(),
+  filter: Joi.any(),
   withoutPagination: Joi.any(),
   page: Joi.any(),
   per_page: Joi.any()

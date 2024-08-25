@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 export const addRecentSearchesValidator = Joi.object().keys(
     {
-  user_id: Joi.string().min(2).max(255).required(),
+  user_id: Joi.string().min(2).max(255),
   keyword: Joi.string().min(2).max(255).required(),
   module: Joi.string().valid('restaurants'),
   updatedAt: Joi.date(),
@@ -12,7 +12,7 @@ export const addRecentSearchesValidator = Joi.object().keys(
 
 export const updateRecentSearchesValidator = Joi.object().keys(
     {
-  user_id: Joi.string().min(2).max(255).required(),
+  user_id: Joi.string().min(2).max(255),
   keyword: Joi.string().min(2).max(255).required(),
   module: Joi.string().valid('restaurants'),
   updatedAt: Joi.date(),

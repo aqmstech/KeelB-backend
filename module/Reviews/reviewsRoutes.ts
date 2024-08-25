@@ -10,10 +10,11 @@ import {
 } from "./reviewsValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+import requireUser from "../../controllers/global/requiredUser";
 
 // const reviewsController = new ReviewsController(); // Create an instance of Controller
 
-// routes.use(AdminAuthMiddleware);
+routes.use(requireUser);
 
 routes.get('/', validateRequestParams(getAllReviewsValidator), (req: any, res: any) => {
     const reviewsController = new ReviewsController();

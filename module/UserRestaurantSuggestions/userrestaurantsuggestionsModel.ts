@@ -8,11 +8,11 @@ export class UserRestaurantSuggestionsModel extends BaseModel {
         super('userrestaurantsuggestions', []);
         this.fillables = [
   {
-    "column": "name?",
+    "column": "name",
     "type": "string"
   },
   {
-    "column": "location?",
+    "column": "location",
     "type": "object"
   },
   {
@@ -24,7 +24,7 @@ export class UserRestaurantSuggestionsModel extends BaseModel {
     "type": "string"
   },
   {
-    "column": "user_id?",
+    "column": "user_id",
     "type": "string"
   },
   {
@@ -32,11 +32,11 @@ export class UserRestaurantSuggestionsModel extends BaseModel {
     "type": "date"
   },
   {
-    "column": "updatedAt?",
+    "column": "updatedAt",
     "type": "date"
   },
   {
-    "column": "deletedAt?",
+    "column": "deletedAt",
     "type": "date"
   }
 ]

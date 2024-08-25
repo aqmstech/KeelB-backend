@@ -23,7 +23,7 @@ export class BaseModel {
                     try {
                         this.collection = await this.db.createCollection(this.collectionName);
                         resolve("Collection created");
-                    } catch (error: any) {
+                    } catch (error) {
                         if (error.code == 48) {
                             this.collection = this.db.collection(this.collectionName);
                             if (this.collection) {
@@ -55,7 +55,7 @@ export class BaseModel {
         if (!this.db) throw new Error('Unable to Initialize model in worker');
         try {
             this.collection = await this.db.collection(this.collectionName);
-        } catch (error: any) {
+        } catch (error) {
             throw new Error('Error in Initializing Collection in Worker')
         }
     }
@@ -112,7 +112,7 @@ export class BaseModel {
             }
             data = await this.collection.find(filter).sort(order).skip(pagination.skip).limit(pagination.limit).toArray();
             return Utils.Pagination(data, page, perPage, parseInt(total), this?.collectionName || 'data');
-        } catch (error: any) {
+        } catch (error) {
             console.log(error);
             throw new Error(error);
         }
@@ -125,7 +125,7 @@ export class BaseModel {
         try {
             let doc = await this.collection.insertOne(data)
             return doc.insertedId;
-        } catch (error: any) {
+        } catch (error) {
             console.log(error, 'model error add')
             throw new Error(error);
         }
@@ -139,7 +139,7 @@ export class BaseModel {
                 returnDocument: 'after'
             })
             return doc.value;
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -152,7 +152,7 @@ export class BaseModel {
                 {_id: id},
                 {$set: data},
             );
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -167,7 +167,7 @@ export class BaseModel {
             );
 
             return await this.collection.findOne(condition);
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -177,7 +177,7 @@ export class BaseModel {
         try {
             filter.deletedAt = null
             return await this.collection.findOne(filter);
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -189,7 +189,7 @@ export class BaseModel {
                 let filter = {_id: id, deletedAt: null}
                 return await this.collection.findOne(filter);
             }
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -202,7 +202,30 @@ export class BaseModel {
                 {_id: _id},
                 {$set: {isDeleted: true, deletedAt: new Date().toISOString()}},
             );
-        } catch (error: any) {
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    public async DeleteMany(filter: object ={}) {
+        if (!this.collection) await this.INIT()
+        try {
+            return await this.collection.deleteMany(
+                filter
+            );
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+    public async HardDelete(id: object) {
+        if (!this.collection) await this.INIT()
+        try {
+            const _id = id
+            return await this.collection.deleteOne(
+                {_id: _id}
+            );
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -211,7 +234,7 @@ export class BaseModel {
         if (!this.collection) await this.INIT()
         try {
             return this.collection.countDocuments(condition);
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -220,7 +243,7 @@ export class BaseModel {
         if (!this.collection) await this.INIT()
         try {
             return await this.collection.find(filter).sort(sortBy).toArray();
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -229,7 +252,7 @@ export class BaseModel {
         if (!this.collection) await this.INIT()
         try {
             return await this.collection.insertMany(data);
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }
@@ -238,7 +261,7 @@ export class BaseModel {
         if (!this.collection) await this.INIT()
         try {
             return await this.collection.updateMany(filter,{$set:data});
-        } catch (error: any) {
+        } catch (error) {
             throw new Error(error);
         }
     }

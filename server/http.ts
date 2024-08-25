@@ -37,6 +37,7 @@ import * as UserRestaurantSuggestionsRouter from '../module/UserRestaurantSugges
 import * as CategoriesRouter from '../module/Categories/categoriesRoutes'
 import * as UserfavoritesRouter from '../module/UserFavorites/userfavoritesRoutes'
 import * as RestaurantsRouter from '../module/Restaurants/restaurantsRoutes'
+import * as ReviewsRouter from '../module/Reviews/reviewsRoutes'
 import * as DashboardRouter from '../module/Dashboard/dashboardRoutes'
 
 import * as http from 'http';
@@ -108,6 +109,7 @@ export class HTTPServer {
         this.server.app.use("/api/v1/recentsearches", RecentSearchesRouter.router)
         this.server.app.use("/api/v1/userfavorites", UserfavoritesRouter.router)
         this.server.app.use("/api/v1/restaurants", RestaurantsRouter.router)
+        this.server.app.use("/api/v1/reviews", ReviewsRouter.router)
         this.server.app.use("/api/v1/userrestaurantsuggestions", UserRestaurantSuggestionsRouter.router)
 
 

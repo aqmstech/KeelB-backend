@@ -47,4 +47,15 @@ export class RecentSearchesModel extends BaseModel {
 
                 return newData as RecentSearchesInterface;
             }
+
+    public async DeleteMany(filter: object ={}) {
+        if (!this.collection) await this.INIT()
+        try {
+            return await this.collection.deleteMany(
+                filter
+            );
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
 }

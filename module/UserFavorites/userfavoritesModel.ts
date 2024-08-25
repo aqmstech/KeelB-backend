@@ -8,11 +8,11 @@ export class UserFavoritesModel extends BaseModel {
         super('userfavorites', []);
         this.fillables = [
   {
-    "column": "user_id?",
+    "column": "user_id",
     "type": "string"
   },
   {
-    "column": "restaurant_id?",
+    "column": "restaurant_id",
     "type": "string"
   },
   {
@@ -20,11 +20,11 @@ export class UserFavoritesModel extends BaseModel {
     "type": "date"
   },
   {
-    "column": "updatedAt?",
+    "column": "updatedAt",
     "type": "date"
   },
   {
-    "column": "deletedAt?",
+    "column": "deletedAt",
     "type": "date"
   }
 ]

@@ -10,10 +10,11 @@ import {
 } from "./recentSearchesValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+import requireUser from "../../controllers/global/requiredUser";
 
 // const recentsearchesController = new RecentSearchesController(); // Create an instance of Controller
 
-// routes.use(AdminAuthMiddleware);
+routes.use(requireUser);
 
 routes.get('/', validateRequestParams(getAllRecentSearchesValidator), (req: any, res: any) => {
     const recentsearchesController = new RecentSearchesController();
@@ -31,10 +32,18 @@ routes.put('/:id', validateRequestBody(updateRecentSearchesValidator), (req: any
     const recentsearchesController = new RecentSearchesController();
     recentsearchesController.update(req, res)
 });
+
+
+routes.delete('/all', (req: any, res: any) => {
+    const recentsearchesController = new RecentSearchesController();
+    recentsearchesController.deleteAll(req, res)
+});
+
 routes.delete('/:id', (req: any, res: any) => {
     const recentsearchesController = new RecentSearchesController();
     recentsearchesController.delete(req, res)
 });
+
 
 
 export const router = routes;

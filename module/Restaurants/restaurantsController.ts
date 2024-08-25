@@ -5,6 +5,7 @@ import {DEFAULT_ORDER, DESC} from "../../utils/constants";
 import {ObjectId} from "mongodb";
 import {Utils} from "../../utils/utils";
 import {AuthModel} from "../_Auth/authModel";
+import UserRoles from "../../utils/enums/userRoles";
 
 export class RestaurantsController extends BaseController {
     private authModel: AuthModel
@@ -26,7 +27,15 @@ export class RestaurantsController extends BaseController {
                 filter.user_id= new ObjectId(param.user_id)
             }
 
-            console.log(req.auth)
+            if(req?.auth?.role == UserRoles.USER){
+                filter.isVerified= true
+            }else{
+                if(param.isVerified !== undefined) {
+                    filter.isVerified = param.isVerified == 1 ? true : false
+                }
+            }
+
+
             const user = await this.authModel.findByQuery({_id:new ObjectId(req.auth._id)})
 
             if (param.name !== undefined) {
@@ -100,7 +109,7 @@ export class RestaurantsController extends BaseController {
             if (param.ambiance !== undefined) {
                 filter.ambiance = { $in: param.ambiance };  // Filters by ambiance that match any in the array
             }
-            console.log(param.categories,'param.categories')
+
             if (param.categories !== undefined) {
                 if(param.categories?.length){
                     let categories = param.categories?.map((item : string)=> new ObjectId(item) )
@@ -108,12 +117,12 @@ export class RestaurantsController extends BaseController {
                 }
                 }
 
-            if(param.isVerified !== undefined) {
-                filter.isVerified = param.isVerified == 1 ? true : false
-            }
-
             if(param.isFeatured !== undefined) {
                 filter.isFeatured = param.isFeatured == 1 ? true : false
+            }
+
+            if(param.isFavourite !== undefined) {
+                filter.isFavourite = param.isFavourite == 1 ? true : false
             }
 
             if(param.avg_rating !== undefined) {
@@ -127,7 +136,7 @@ export class RestaurantsController extends BaseController {
                 order = { [param.order_by]: parseInt(param?.order) || DESC }
             }
 
-            const result = await this.service.getAll(order, param, filter);
+            const result = await this.service.getAll(order, param, filter,user?._id);
             return res.status(result.status_code).send(result.body);
         } catch (error) {
             console.log(error, 'getAll');
@@ -137,10 +146,23 @@ export class RestaurantsController extends BaseController {
     };
 
     async getById(req: any, res: any) {
-        return super.getById(req, res);
+        try {
+            const id = new ObjectId(req.params.id);
+            const user_id = new ObjectId(req.auth._id);
+            const result = await this.service.getRestaurantById(id,user_id);
+            return res.status(result.status_code).send(result.body);
+        } catch (error) {
+            console.log(error, 'getById');
+            const error_result = Utils.getResponse(false, "Something went wrong", error, 500, 1005);
+            return res.status(error_result.status_code).send(error_result.body);
+        }
     };
 
     async create(req: any, res: any) {
+        req.body.user_id = new ObjectId(req?.auth?._id)
+        if( req.body.categories?.length){
+            req.body.categories = req.body.categories?.map((item:string)=> new ObjectId(item))
+        }
         return super.create(req, res)
     };
 

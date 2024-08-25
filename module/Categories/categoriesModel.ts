@@ -16,7 +16,7 @@ export class CategoriesModel extends BaseModel {
     "type": "string"
   },
   {
-    "column": "parent_id?",
+    "column": "parent_id",
     "type": "string"
   },
   {
@@ -24,11 +24,11 @@ export class CategoriesModel extends BaseModel {
     "type": "boolean"
   },
   {
-    "column": "type?",
+    "column": "type",
     "type": "enum"
   },
   {
-    "column": "isFeatured?",
+    "column": "isFeatured",
     "type": "boolean"
   },
   {
@@ -36,11 +36,11 @@ export class CategoriesModel extends BaseModel {
     "type": "date"
   },
   {
-    "column": "updatedAt?",
+    "column": "updatedAt",
     "type": "date"
   },
   {
-    "column": "deletedAt?",
+    "column": "deletedAt",
     "type": "date"
   }
 ]
