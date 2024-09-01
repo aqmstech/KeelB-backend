@@ -38,6 +38,12 @@ import * as CategoriesRouter from '../module/Categories/categoriesRoutes'
 import * as UserfavoritesRouter from '../module/UserFavorites/userfavoritesRoutes'
 import * as RestaurantsRouter from '../module/Restaurants/restaurantsRoutes'
 import * as ReviewsRouter from '../module/Reviews/reviewsRoutes'
+import * as AmbianceRoutes from '../module/Ambiance/ambianceRoutes'
+import * as CuisinesRoutes from '../module/Cuisines/cuisinesRoutes'
+import * as MealtypesRoutes from '../module/MealTypes/mealtypesRoutes'
+import * as AreasRoutes from '../module/Areas/areasRoutes'
+import * as DinningoptionsRoutes from '../module/DinningOptions/dinningoptionsRoutes'
+import * as RestauranttypeRoutes from '../module/RestaurantType/restauranttypeRoutes'
 import * as DashboardRouter from '../module/Dashboard/dashboardRoutes'
 
 import * as http from 'http';
@@ -111,7 +117,12 @@ export class HTTPServer {
         this.server.app.use("/api/v1/restaurants", RestaurantsRouter.router)
         this.server.app.use("/api/v1/reviews", ReviewsRouter.router)
         this.server.app.use("/api/v1/userrestaurantsuggestions", UserRestaurantSuggestionsRouter.router)
-
+        this.server.app.use("/api/v1/mealtypes", MealtypesRoutes.router)
+        this.server.app.use("/api/v1/ambiances", AmbianceRoutes.router)
+        this.server.app.use("/api/v1/cuisines", CuisinesRoutes.router)
+        this.server.app.use("/api/v1/areas", AreasRoutes.router)
+        this.server.app.use("/api/v1/restauranttypes", RestauranttypeRoutes.router)
+        this.server.app.use("/api/v1/dinningoptions", DinningoptionsRoutes.router)
 
 
         //Default Route Must be added at end.

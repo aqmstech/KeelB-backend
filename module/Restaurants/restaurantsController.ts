@@ -110,6 +110,18 @@ export class RestaurantsController extends BaseController {
                 filter.ambiance = { $in: param.ambiance };  // Filters by ambiance that match any in the array
             }
 
+            if (param.areas !== undefined) {
+                filter.areas = { $in: param.areas };  // Filters by cuisines that match any in the array
+            }
+
+            if (param.types !== undefined) {
+                filter.types = { $in: param.types };  // Filters by meal types that match any in the array
+            }
+
+            if (param.dinning_options !== undefined) {
+                filter.dinning_options = { $in: param.dinning_options };  // Filters by ambiance that match any in the array
+            }
+
             if (param.categories !== undefined) {
                 if(param.categories?.length){
                     let categories = param.categories?.map((item : string)=> new ObjectId(item) )
@@ -163,6 +175,13 @@ export class RestaurantsController extends BaseController {
         if( req.body.categories?.length){
             req.body.categories = req.body.categories?.map((item:string)=> new ObjectId(item))
         }
+        let user = await this.authModel.GetOne({_id:new ObjectId(req?.auth?._id)});
+        await this.authModel.Update(req?.auth?._id,{
+            additionalFields:{
+                ...user.additionalFields,
+                is_restaurant_profile:true
+            }
+        })
         return super.create(req, res)
     };
 

@@ -29,21 +29,27 @@ export function encrypt(payload: any, options?: any) {
 }
 
 export function decrypt(payload: any, options?: any) {
-  let encrypted = payload.substring(32);
+  try{
+    let encrypted = payload.substring(32);
 
-  const decipher = crypto.createDecipheriv(
-    Application.conf.ENCRYPTION.algorithm,
-    Application.conf.ENCRYPTION.salt,
-    Application.conf.ENCRYPTION.iv
-  );
+    const decipher = crypto.createDecipheriv(
+        Application.conf.ENCRYPTION.algorithm,
+        Application.conf.ENCRYPTION.salt,
+        Application.conf.ENCRYPTION.iv
+    );
 
-  let decrypted = decipher.update(encrypted, "hex", "utf8");
-  
-  // decrypted += decipher.final("utf8");
-  // console.log("decrypted => ", decrypted);
-  // console.log(JSON.parse(decrypted), "decrypted");
+    let decrypted = decipher.update(encrypted, "hex", "utf8");
 
-  return JSON.parse(decrypted);
+    // decrypted += decipher.final("utf8");
+    // console.log("decrypted => ", decrypted);
+    // console.log(JSON.parse(decrypted), "decrypted");
+
+    return JSON.parse(decrypted);
+  }catch (e) {
+    console.log(e,'encrypt')
+    throw e
+  }
+
 }
 
 export function verify(token: string,res:Response) {
