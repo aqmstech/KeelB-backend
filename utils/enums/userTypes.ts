@@ -1,6 +1,7 @@
 enum UserTypes {
     USER = 'User',
-    TRAINER = 'Trainer',
+    RESTAURANT = 'Restaurant',
+    SUB_ADMIN = 'Sub_Admin',
     ADMIN = 'Admin'
 }
 

@@ -10,6 +10,7 @@ import {
 } from "./categoriesValidator";
 
 import {validateRequestBody, validateRequestParams} from "../../utils/validator/ValidateRequest";
+import requireUser from "../../controllers/global/requiredUser";
 
 // const categoriesController = new CategoriesController(); // Create an instance of Controller
 
@@ -23,15 +24,15 @@ routes.get('/:id', (req: any, res: any) => {
     const categoriesController = new CategoriesController();
     categoriesController.getById(req, res)
 });
-routes.post('/', validateRequestBody(addCategoriesValidator), (req: any, res: any) => {
+routes.post('/',requireUser, validateRequestBody(addCategoriesValidator), (req: any, res: any) => {
     const categoriesController = new CategoriesController();
     categoriesController.create(req, res)
 });
-routes.put('/:id', validateRequestBody(updateCategoriesValidator), (req: any, res: any) => {
+routes.put('/:id',requireUser, validateRequestBody(updateCategoriesValidator), (req: any, res: any) => {
     const categoriesController = new CategoriesController();
     categoriesController.update(req, res)
 });
-routes.delete('/:id', (req: any, res: any) => {
+routes.delete('/:id',requireUser, (req: any, res: any) => {
     const categoriesController = new CategoriesController();
     categoriesController.delete(req, res)
 });

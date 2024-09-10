@@ -1,4 +1,5 @@
 import { AuthTypeEnum } from "./authInterface";
+import UserRoles from "../../utils/enums/userRoles";
 
 const Joi = require('joi');
 const authType = {
@@ -16,7 +17,7 @@ export const addAuthValidator = Joi.object().keys(
     address: Joi.string().min(2).max(255).optional(),
     email: Joi.string().min(10).max(255).required(),
     password: Joi.string().min(2).max(255).optional(),
-    role: Joi.number().required(),
+    role: Joi.number().valid(UserRoles.USER,UserRoles.ADMIN,UserRoles.RESTAURANT,UserRoles.SUB_ADMIN).required(),
     pushNotification: Joi.boolean(),
     isVerified: Joi.boolean(),
     location: Joi.any(),
@@ -40,7 +41,7 @@ export const updateAuthValidator = Joi.object().keys(
     coverImage: Joi.string().max(255),
     address: Joi.string().min(2).max(255).optional(),
     password: Joi.string().min(2).max(255).optional(),
-    role: Joi.number().required(),
+    role: Joi.number().valid(UserRoles.USER,UserRoles.ADMIN,UserRoles.RESTAURANT,UserRoles.SUB_ADMIN).required(),
     pushNotification: Joi.boolean(),
     isVerified: Joi.boolean(),
     location: Joi.any(),
@@ -87,7 +88,7 @@ export const loginValidator = Joi.object().keys(
     email: Joi.string().email().min(10).max(255),
     password: Joi.string().min(2).max(255),
     authType: Joi.string().valid(authType.PHONE, authType.EMAIL).required().min(5).max(255),
-    role: Joi.number().optional(),
+      role: Joi.number().valid(UserRoles.USER,UserRoles.ADMIN,UserRoles.RESTAURANT,UserRoles.SUB_ADMIN).optional(),
     deviceType: Joi.string().min(2).max(255),
     deviceToken: Joi.string().min(2).max(255),
   }
@@ -157,7 +158,7 @@ export const socialLoginValidator = Joi.object().keys(
       .messages({ 'any.only': `Auth type must be from ${AuthTypeEnum}` }),
     email: Joi.string().allow("").email(),
     phone: Joi.string().allow(""),
-    role: Joi.number().required(),
+    role: Joi.number().valid(UserRoles.USER,UserRoles.ADMIN,UserRoles.RESTAURANT,UserRoles.SUB_ADMIN).required(),
     pushNotification: Joi.boolean().optional(),
     deviceType: Joi.when('pushNotification', {
       is: true,

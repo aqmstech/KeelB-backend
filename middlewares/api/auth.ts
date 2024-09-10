@@ -14,7 +14,7 @@ export const AuthMiddleware = (req: any, res:any, next:any) => {
     try {
         const decoded:any = jwt.verify(token, JWT_SECRET);
 
-        if(decoded && (decoded.type==UserTypes.TRAINER || decoded.type==UserTypes.USER)){
+        if(decoded && (decoded.type==UserTypes.RESTAURANT || decoded.type==UserTypes.USER)){
             req.auth = decoded;
             next();
         }else{
@@ -49,7 +49,7 @@ export const UserAuthMiddleware = (req: any, res:any, next:any) => {
     }
 }
 
-export const TrainerAuthMiddleware = (req: any, res:any, next:any) => {
+export const RestaurantAuthMiddleware = (req: any, res:any, next:any) => {
     const token = req.body.token || req.query.token || req.headers["x-access-token"];
     if (!token) {
         const result = Utils.getResponse(false, "Access denied. No token provided", null, 401);
@@ -57,7 +57,7 @@ export const TrainerAuthMiddleware = (req: any, res:any, next:any) => {
     }
     try {
         const decoded:any = jwt.verify(token, JWT_SECRET );
-        if(decoded && (decoded.type==UserTypes.TRAINER)){
+        if(decoded && (decoded.type==UserTypes.RESTAURANT)){
             req.auth = decoded;
             next();
         }else{

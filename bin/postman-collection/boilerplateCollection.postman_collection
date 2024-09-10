@@ -4848,6 +4848,1175 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "ambiance",
+      "item": [
+        {
+          "name": "Add ambiance",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"S4Jq\",\"image\":\"eD7P\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new ambiance",
+            "url": {
+              "raw": "{{baseUrl}}ambiances",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete ambiance",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single ambiance",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All ambiance",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"GHdt\",\"image\":\"5NwJ\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update ambiance",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"r8y5\",\"image\":\"Jwpy\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "mealTypes",
+      "item": [
+        {
+          "name": "Add mealTypes",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"ftQW\",\"image\":\"D7ni\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new mealTypes",
+            "url": {
+              "raw": "{{baseUrl}}mealtypes",
+              "host": [
+                "{{baseUrl}}mealtypes"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete mealTypes",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}mealtypes/1",
+              "host": [
+                "{{baseUrl}}mealtypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single mealTypes",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}mealtypes/1",
+              "host": [
+                "{{baseUrl}}mealtypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All mealTypes",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}mealtypes",
+              "host": [
+                "{{baseUrl}}mealtypes"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"rkdz\",\"image\":\"8tTZ\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update mealTypes",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"8lYD\",\"image\":\"VwjA\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}mealtypes/1",
+              "host": [
+                "{{baseUrl}}mealtypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ambiance",
+      "item": [
+        {
+          "name": "Add ambiance",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"loSe\",\"image\":\"RUtp\",\"status\":true,\"isFeatured\":true,\"updatedAt\":\"0000-00-00\",\"deletedAt\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new ambiance",
+            "url": {
+              "raw": "{{baseUrl}}ambiances",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete ambiance",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single ambiance",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All ambiance",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}ambiances",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"fdKf\",\"image\":\"5HiA\",\"status\":true,\"isFeatured\":true,\"createdAt\":\"0000-00-00\",\"updatedAt\":\"0000-00-00\",\"deletedAt\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update ambiance",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Gzmg\",\"image\":\"lk0W\",\"status\":true,\"isFeatured\":true,\"updatedAt\":\"0000-00-00\",\"deletedAt\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}ambiances/1",
+              "host": [
+                "{{baseUrl}}ambiances"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cuisines",
+      "item": [
+        {
+          "name": "Add cuisines",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"vIao\",\"image\":\"WgM8\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new cuisines",
+            "url": {
+              "raw": "{{baseUrl}}cuisines",
+              "host": [
+                "{{baseUrl}}cuisines"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete cuisines",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}cuisines/1",
+              "host": [
+                "{{baseUrl}}cuisines"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single cuisines",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}cuisines/1",
+              "host": [
+                "{{baseUrl}}cuisines"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All cuisines",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}cuisines",
+              "host": [
+                "{{baseUrl}}cuisines"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"fgXM\",\"image\":\"k1vL\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update cuisines",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"XEd8\",\"image\":\"DBzS\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}cuisines/1",
+              "host": [
+                "{{baseUrl}}cuisines"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "areas",
+      "item": [
+        {
+          "name": "Add areas",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"yq4X\",\"image?\":\"fPLc\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new areas",
+            "url": {
+              "raw": "{{baseUrl}}areas",
+              "host": [
+                "{{baseUrl}}areas"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete areas",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}areas/1",
+              "host": [
+                "{{baseUrl}}areas"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single areas",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}areas/1",
+              "host": [
+                "{{baseUrl}}areas"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All areas",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}areas",
+              "host": [
+                "{{baseUrl}}areas"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"0DbD\",\"image?\":\"TcT9\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update areas",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"PWiJ\",\"image?\":\"Cltl\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}areas/1",
+              "host": [
+                "{{baseUrl}}areas"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "restaurantType",
+      "item": [
+        {
+          "name": "Add restaurantType",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"KnsA\",\"image?\":\"lbdx\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new restaurantType",
+            "url": {
+              "raw": "{{baseUrl}}restauranttypes",
+              "host": [
+                "{{baseUrl}}restauranttypes"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete restaurantType",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restauranttypes/1",
+              "host": [
+                "{{baseUrl}}restauranttypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single restaurantType",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restauranttypes/1",
+              "host": [
+                "{{baseUrl}}restauranttypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All restaurantType",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}restauranttypes",
+              "host": [
+                "{{baseUrl}}restauranttypes"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"Kqzv\",\"image?\":\"JW1n\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update restaurantType",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"6pZ9\",\"image?\":\"Yk9F\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}restauranttypes/1",
+              "host": [
+                "{{baseUrl}}restauranttypes"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "dinningOptions",
+      "item": [
+        {
+          "name": "Add dinningOptions",
+          "event": [],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Cz8M\",\"image?\":\"pkMP\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Add a new dinningOptions",
+            "url": {
+              "raw": "{{baseUrl}}dinningoptions",
+              "host": [
+                "{{baseUrl}}dinningoptions"
+              ]
+            },
+            "response": []
+          }
+        },
+        {
+          "name": "Delete dinningOptions",
+          "event": [],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}dinningoptions/1",
+              "host": [
+                "{{baseUrl}}dinningoptions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single dinningOptions",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}dinningoptions/1",
+              "host": [
+                "{{baseUrl}}dinningoptions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All dinningOptions",
+          "event": [],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}dinningoptions",
+              "host": [
+                "{{baseUrl}}dinningoptions"
+              ],
+              "query": [
+                {
+                  "key": "withoutPagination",
+                  "value": "1",
+                  "description": "with out pagination"
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "page number"
+                },
+                {
+                  "key": "per_page",
+                  "value": "1",
+                  "description": "rows limit"
+                },
+                {
+                  "key": "keyword",
+                  "value": "1",
+                  "description": "keyword search",
+                  "disabled": true
+                },
+                {
+                  "key": "filter",
+                  "value": "{\"name\":\"I5mE\",\"image?\":\"ChIn\",\"status\":true,\"isFeatured?\":true,\"createdAt\":\"0000-00-00\",\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+                  "description": "search filters",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update dinningOptions",
+          "event": [],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"FA4W\",\"image?\":\"xpAF\",\"status\":true,\"isFeatured?\":true,\"updatedAt?\":\"0000-00-00\",\"deletedAt?\":\"0000-00-00\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}dinningoptions/1",
+              "host": [
+                "{{baseUrl}}dinningoptions"
+              ],
+              "path": [
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }

@@ -16,11 +16,13 @@ import { SocialaccountsModel } from '../_Socialaccounts/socialaccountsModel';
 import { AccountdeletionsModel } from '../_Accountdeletions/accountdeletionsModel';
 import {DEFAULT_ORDER, PAGE, PER_PAGE} from "../../utils/constants";
 import UserRoles from "../../utils/enums/userRoles";
+import {RestaurantsModel} from "../Restaurants/restaurantsModel";
 const  StripeService = require('../Stripe/stripeCustom')
 
 export class AuthService extends BaseService {
     private authModel: AuthModel
     private userdevicesModel: UserdevicesModel
+    private restaurantsModel: RestaurantsModel
     private socialaccountsModel: SocialaccountsModel
     private accountdeletionsModel: AccountdeletionsModel
 
@@ -29,6 +31,7 @@ export class AuthService extends BaseService {
         super(authModel);
         this.authModel = authModel
         this.userdevicesModel = new UserdevicesModel()
+        this.restaurantsModel = new RestaurantsModel()
         this.socialaccountsModel = new SocialaccountsModel()
         this.accountdeletionsModel = new AccountdeletionsModel()
     }
@@ -58,7 +61,7 @@ export class AuthService extends BaseService {
             email = email.toLowerCase()
 
 
-            if(role != UserRoles.USER){
+            if(role != UserRoles.USER && role != UserRoles.RESTAURANT ){
                 const errorResponse = Utils.getResponse(false, "Sign up failed: You are not authorized to sign up with this role. Only the 'user' role is allowed for sign up.", {}, 403, 1005);
                 return res.status(errorResponse.status_code).send(errorResponse.body);
             }
@@ -220,7 +223,11 @@ export class AuthService extends BaseService {
                     ? req.body.pushNotification
                     : user?.pushNotification,
             });
-            
+            let restaurant: any = await this.restaurantsModel.GetOne({user_id:user._id});
+            console.log(restaurant,'restaurant')
+            if (restaurant) {
+                user.restaurant = restaurant
+            }
             await this.userdevicesModel.findAllByQuery({
                 userId: new ObjectId(user._id),
                 deviceToken: req?.body.deviceToken,
