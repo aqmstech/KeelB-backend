@@ -115,7 +115,7 @@ export class AuthService extends BaseService {
             //     }
             // }
             //
-            // additionalFields.subscribed_topics = ['video','general']
+            additionalFields.subscribed_topics = ['restaurant','general']
 
             const myUser: AuthInterface = {
                 firstName,
@@ -445,7 +445,7 @@ export class AuthService extends BaseService {
                 address: string;
             } = req.body;
 
-            // additionalFields.subscribed_topics = ['video']
+            additionalFields.subscribed_topics = ['restaurant','general']
             email = email.toLowerCase()
 
             if (!('pushNotification' in req.body)) {
@@ -1171,7 +1171,6 @@ export class AuthService extends BaseService {
 
     async createUser(req: any, res: any) {
         try {
-
             let {
                 firstName,
                 lastName,
@@ -1234,19 +1233,19 @@ export class AuthService extends BaseService {
 
             let otp = '';
 
-            if (email) {
-                const stripe_customer: any = await StripeService.addCustomer({
-                    email: email,
-                });
-                if (stripe_customer?.id) {
-                    additionalFields.stripe_customer_id = stripe_customer.id;
-                }else{
-                    additionalFields.stripe_customer_id = null;
-                }
-            }
+            // if (email) {
+            //     const stripe_customer: any = await StripeService.addCustomer({
+            //         email: email,
+            //     });
+            //     if (stripe_customer?.id) {
+            //         additionalFields.stripe_customer_id = stripe_customer.id;
+            //     }else{
+            //         additionalFields.stripe_customer_id = null;
+            //     }
+            // }
 
-            additionalFields.subscribed_topics = ['video','general']
-            additionalFields.is_profile = false
+            additionalFields.subscribed_topics = ['restaurant','general']
+            // additionalFields.is_profile = false
 
             const myUser: AuthInterface = {
                 firstName,
