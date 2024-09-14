@@ -54,6 +54,10 @@ export class AuthModel extends BaseModel {
         "type": "boolean"
       },
       {
+        "column": "isPro?",
+        "type": "boolean"
+      },
+      {
         "column": "location?",
         "type": "object"
       },

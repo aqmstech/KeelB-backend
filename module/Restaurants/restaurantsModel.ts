@@ -220,6 +220,20 @@ export class RestaurantsModel extends BaseModel {
                     }
                 },
                 {
+                    $lookup: {
+                        from: 'users', // Assuming the name of the user collection is 'user'
+                        localField: 'user_id', // Local field in the current collection
+                        foreignField: '_id', // Foreign field in the user collection
+                        pipeline: [
+                            {$project: {otpInfo: 0, password: 0,isDeleted:0}},
+                        ],
+                        as: 'user',// Alias for the joined user data,
+
+                    },
+
+                },
+                {$unwind: {path: "$user", preserveNullAndEmptyArrays: true}},
+                {
                     $addFields: {
                         avg_rating: {$ifNull: [{$arrayElemAt: ['$reviews.avgRating', 0]}, 0]},
                         totalReviews: {$ifNull: [{$arrayElemAt: ['$reviews.totalReviews', 0]}, 0]},
@@ -282,6 +296,20 @@ export class RestaurantsModel extends BaseModel {
                             as: 'reviews'
                         }
                     },
+                    {
+                        $lookup: {
+                            from: 'users', // Assuming the name of the user collection is 'user'
+                            localField: 'user_id', // Local field in the current collection
+                            foreignField: '_id', // Foreign field in the user collection
+                            pipeline: [
+                                {$project: {otpInfo: 0, password: 0,isDeleted:0}},
+                            ],
+                            as: 'user',// Alias for the joined user data,
+
+                        },
+
+                    },
+                    {$unwind: {path: "$user", preserveNullAndEmptyArrays: true}},
                     {
                         $lookup: {
                             from: 'userfavorites',

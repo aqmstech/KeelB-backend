@@ -98,6 +98,7 @@ routes.patch('/user/:id', requireUser,validateRequestBody(updateAuthValidator), 
     const authController = new AuthController();
     authController.updateUser(req, res)
 });
+
 routes.patch('/user/delete/:id', requireUser, (req: any, res: any) => {
     const authController = new AuthController();
     authController.deleteUser(req, res)
