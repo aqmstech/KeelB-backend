@@ -10,6 +10,7 @@ export interface AuthInterface {
   role: number,
   pushNotification?: boolean,
   isVerified?: boolean,
+  isPro?: boolean,
   location?: {
     type: string;
     coordinates: string;

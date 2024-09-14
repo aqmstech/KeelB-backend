@@ -30,6 +30,12 @@ routes.put('/:id',requireUser, validateRequestBody(updateRestaurantsValidator), 
     const restaurantsController = new RestaurantsController();
     restaurantsController.update(req, res)
 });
+
+routes.patch('/:id',requireUser, (req: any, res: any) => {
+    const restaurantsController = new RestaurantsController();
+    restaurantsController.update(req, res)
+});
+
 routes.delete('/:id',requireUser, (req: any, res: any) => {
     const restaurantsController = new RestaurantsController();
     restaurantsController.delete(req, res)

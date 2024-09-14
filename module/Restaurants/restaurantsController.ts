@@ -186,6 +186,9 @@ export class RestaurantsController extends BaseController {
     };
 
     async update(req: any, res: any) {
+        if( req.body.categories?.length){
+            req.body.categories = req.body.categories?.map((item:string)=> new ObjectId(item))
+        }
         return super.update(req, res)
     };
 
