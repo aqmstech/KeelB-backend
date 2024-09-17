@@ -10,9 +10,7 @@ export const addPagesValidator = Joi.object().keys(
 
 export const updatePagesValidator = Joi.object().keys(
   {
-    title: Joi.string().min(2).max(1000).required(),
     content: Joi.string().min(2).required(),
-    slug: Joi.string().min(2).max(255).required(),
   }
 );
 

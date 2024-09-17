@@ -23,7 +23,7 @@ routes.get('/:id', (req: any, res: any) => {
     const pagesController = new PagesController();
     pagesController.getById(req, res)
 });
-routes.get('/slug/:id', (req: any, res: any) => {
+routes.get('/slug/:slug/', (req: any, res: any) => {
     const pagesController = new PagesController();
     pagesController.getBySlug(req, res)
 });
