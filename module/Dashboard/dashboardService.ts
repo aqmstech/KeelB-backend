@@ -58,8 +58,8 @@ export class DashboardService {
          if(isRestaurant){
              let user_restaurant = await this.restaurantsModel.GetOne({user_id:new ObjectId(user_id),deletedAt:null})
              if(user_restaurant){
-                 reviews = await this.reviewsModel.Count({user_id:new ObjectId(user_restaurant?._id),deletedAt:null})
-                 userFavorites = await this.userFavoritesModel.Count({user_id:new ObjectId(user_restaurant?._id),deletedAt:null})
+                 reviews = await this.reviewsModel.Count({restaurant_id:new ObjectId(user_restaurant?._id),deletedAt:null})
+                 userFavorites = await this.userFavoritesModel.Count({restaurant_id:new ObjectId(user_restaurant?._id),deletedAt:null})
              }
 
          }
