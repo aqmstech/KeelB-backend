@@ -1,5 +1,6 @@
 import {BaseModel} from "../../models/baseModel";
 import { UserRestaurantSuggestionsInterface} from "./userrestaurantsuggestionsInterface";
+import {Utils} from "../../utils/utils";
 
 export class UserRestaurantSuggestionsModel extends BaseModel {
     protected fillables: any = [];
@@ -55,4 +56,87 @@ export class UserRestaurantSuggestionsModel extends BaseModel {
 
                 return newData as UserRestaurantSuggestionsInterface;
             }
+
+    public async List(
+        filter: any,
+        order: Record<string, any>,
+        page: number,
+        perPage: number,
+        withoutPagination: boolean = false,
+    ) {
+        if (!this.collection) await this.INIT();
+        try {
+            if (filter && typeof filter === 'string') {
+                filter = JSON.parse(filter);
+            }
+
+            if (filter) {
+                const andFilter: any[] = [];
+
+                Object.keys(filter).forEach(field => {
+                    const value = filter[field];
+                    let searchParam;
+
+                    if (typeof value === 'string') {
+                        const searchRegex = new RegExp(value, 'i');
+                        searchParam = { [field]: searchRegex };
+                    } else if (typeof value === 'number' || typeof value === 'boolean' || value instanceof Date) {
+                        searchParam = { [field]: value };
+                    } else {
+                        searchParam = { [field]: value };
+                    }
+
+                    andFilter.push(searchParam);
+                    delete filter[field];
+                });
+
+                if (andFilter.length > 0) {
+                    filter.$and = andFilter;
+                }
+            }
+
+            filter.deletedAt = null;
+
+            const pagination = Utils.CalcPagination(page, perPage);
+            const total = await this.collection.countDocuments(filter);
+            let data = [];
+
+            const pipeline: any[] = [
+                {
+                    $lookup: {
+                        from: 'users', // Assuming the name of the user collection is 'user'
+                        localField: 'user_id', // Local field in the current collection
+                        foreignField: '_id', // Foreign field in the user collection
+                        pipeline: [
+                            {$project: {otpInfo: 0, password: 0,isDeleted:0}},
+                        ],
+                        as: 'user',// Alias for the joined user data,
+
+                    },
+
+                },
+                {$unwind: {path: "$user", preserveNullAndEmptyArrays: true}},
+                { $match: filter }, // Apply any additional filters
+                { $sort: order } // Apply sorting
+            ];
+
+
+
+            if (!withoutPagination) {
+                pipeline.push({ $skip: pagination.skip });
+                pipeline.push({ $limit: pagination.limit });
+            }
+
+            data = await this.collection.aggregate(pipeline).toArray();
+
+            if (withoutPagination) {
+                return data;
+            }
+
+            return Utils.Pagination(data, page, perPage, parseInt(total), this?.collectionName || 'data');
+        } catch (error) {
+            console.log(error);
+            throw new Error(error);
+        }
+    }
 }

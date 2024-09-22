@@ -137,9 +137,13 @@ export class RestaurantsController extends BaseController {
                 filter.isFavourite = param.isFavourite == 1 ? true : false
             }
 
-            if(param.avg_rating !== undefined) {
-                filter.avg_rating = param.avg_rating
+            if (param.avg_rating !== undefined) {
+                filter.avg_rating = {
+                    $gte: parseInt(param.avg_rating) - 0.4, // Minimum value (example: for 4, this is 3.6)
+                    $lt: parseInt(param.avg_rating) + 0.5  // Less than the given value + 0.05 (example: for 4, this is 4.05)
+                };
             }
+
 
             if(param.status !== undefined) {
                 filter.status = param.status == 1 ? true : false

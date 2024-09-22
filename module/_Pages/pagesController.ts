@@ -29,9 +29,11 @@ export class PagesController extends BaseController {
     async getById(req: any, res: any) {
         return super.getById(req, res);
     };
+
     async getBySlug(req: any, res: any) {
         try {
-            const result = await this.service.getBySlug(req.params.id);
+
+            const result = await this.service.getBySlug(req.params.slug);
             return res.status(result.status_code).send(result.body);
         } catch (error) {
             console.log(error, 'create');

@@ -60,6 +60,10 @@ export class AuthController extends BaseController {
                 filter.isVerified = param.isVerified == 1 ? true : false
             }
 
+            if(param.isPro) {
+                filter.isPro = param.isPro == 1 ? true : false
+            }
+
             if(param.role) {
                 filter.role = parseInt(param.role)
             }

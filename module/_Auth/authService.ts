@@ -225,7 +225,7 @@ export class AuthService extends BaseService {
                     : user?.pushNotification,
             });
             let restaurant: any = await this.restaurantsModel.GetOne({user_id:user._id});
-            console.log(restaurant,'restaurant')
+
             if (restaurant) {
                 user.restaurant = restaurant
             }
@@ -1106,7 +1106,11 @@ export class AuthService extends BaseService {
                 return res.status(errorResponse.status_code).send(errorResponse.body);
             }
             let filteredProperties = CustomOmit(user_data, ["password", "otpInfo"]);
+            let restaurant: any = await this.restaurantsModel.GetOne({user_id:new ObjectId(id)});
 
+            if (restaurant) {
+                filteredProperties.restaurant = restaurant
+            }
 
             let response: any = Utils.getResponse(
                 true,

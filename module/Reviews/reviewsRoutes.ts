@@ -32,6 +32,11 @@ routes.put('/:id', validateRequestBody(updateReviewsValidator), (req: any, res: 
     const reviewsController = new ReviewsController();
     reviewsController.update(req, res)
 });
+routes.patch('/patch/:id', (req: any, res: any) => {
+    const reviewsController = new ReviewsController();
+    reviewsController.update(req, res)
+});
+
 routes.delete('/:id', (req: any, res: any) => {
     const reviewsController = new ReviewsController();
     reviewsController.delete(req, res)
