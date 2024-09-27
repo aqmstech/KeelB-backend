@@ -11,6 +11,15 @@ export class CategoriesController extends BaseController {
         let param = req.query
         let filter :any ={}
 
+
+        if(param.isFeatured !== undefined) {
+            filter.isFeatured = param.isFeatured == 1 ? true : false
+        }
+
+        if(param.status !== undefined) {
+            filter.status = param.status == 1 ? true : false
+        }
+
         if (param.keyword !== undefined) {
             const escapedTitle = param.keyword.replace(/[.*+\-?^${}()|[\]\\]/g, '\\$&');
             filter.name = { $regex: new RegExp(`^${escapedTitle}`, 'i') };

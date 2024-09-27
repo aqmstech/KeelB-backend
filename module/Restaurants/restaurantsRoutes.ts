@@ -14,7 +14,7 @@ import requireUser from "../../controllers/global/requiredUser";
 
 // const restaurantsController = new RestaurantsController(); // Create an instance of Controller
 
-routes.get('/',requireUser, (req: any, res: any) => {
+routes.get('/',requireUser,validateRequestBody(getAllRestaurantsValidator), (req: any, res: any) => {
     const restaurantsController = new RestaurantsController();
     restaurantsController.getAll(req, res)
 });
