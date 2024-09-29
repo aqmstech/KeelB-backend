@@ -97,7 +97,7 @@ export class RestaurantsController extends BaseController {
                             ]
                         }
                     };
-                    console.log(filter.location,'filter.location')
+
                 } else {
                     throw new Error("Invalid user location coordinates");
                 }

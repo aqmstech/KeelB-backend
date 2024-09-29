@@ -53,13 +53,19 @@ export class ReviewsController extends BaseController {
                 filter.$or = orConditions;
             }
 
-
+            if (param.rating !== undefined) {
+                filter.rating = {
+                    $gte: parseInt(param.rating) - 0.4, // Minimum value (example: for 4, this is 3.6)
+                    $lt: parseInt(param.rating) + 0.5  // Less than the given value + 0.05 (example: for 4, this is 4.05)
+                };
+            }
             if (param.order_by) {
                 order = { [param.order_by]: parseInt(param?.order) || DESC }
             }
 
             const result = await this.service.getAll(order, param, filter);
             return res.status(result.status_code).send(result.body);
+
         } catch (error) {
             console.log(error, 'getAll');
             const error_result = Utils.getResponse(false, "Something went wrong", error, 500, 1005);
