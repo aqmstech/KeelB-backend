@@ -80,8 +80,12 @@ export class RestaurantsController extends BaseController {
             //     };
             // }
 
-            if (param.location !== undefined) {
-                const userLocation = user.location;
+            if (param.distance !== undefined) {
+                let userLocation = user.location ;
+                if (param.lat && param.lng){
+                    userLocation.coordinates = [parseFloat(param.lng),parseFloat(param.lat)]
+                }
+
 
                 // Ensure userLocation has valid coordinates
                 if (userLocation?.coordinates && userLocation.coordinates.length === 2) {
@@ -89,10 +93,11 @@ export class RestaurantsController extends BaseController {
                         $geoWithin: {
                             $centerSphere: [
                                 userLocation.coordinates, // User's coordinates [longitude, latitude]
-                                param.location / 6378.1   // Radius of the sphere in radians (convert km to radians)
+                                parseFloat(param.distance) / 6378.1   // Radius of the sphere in radians (convert km to radians)
                             ]
                         }
                     };
+
                 } else {
                     throw new Error("Invalid user location coordinates");
                 }

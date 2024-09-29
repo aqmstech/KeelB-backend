@@ -26,8 +26,8 @@ export const getAllMealTypesValidator = Joi.object().keys(
     {
   name: Joi.string().min(2).max(255),
   image: Joi.string().min(2).max(255),
-  status: Joi.boolean(),
-  isFeatured: Joi.boolean(),
+      status: Joi.number(),
+      isFeatured: Joi.number(),
   createdAt: Joi.date(),
   updatedAt: Joi.date(),
   deletedAt: Joi.date(),
