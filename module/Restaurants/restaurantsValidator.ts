@@ -4,7 +4,7 @@ export const addRestaurantsValidator = Joi.object().keys(
     {
         name: Joi.string().min(2).max(255).required(),
         cover_image: Joi.string().min(2).max(255).optional(),
-        image: Joi.string().min(2).max(255).optional(),
+        image: Joi.string().min(2).max(255).optional().allow(null),
         description: Joi.string().min(2).required(),
         address: Joi.string().min(2),
         user_id: Joi.string().min(2).max(255),
