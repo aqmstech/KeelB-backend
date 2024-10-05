@@ -234,10 +234,21 @@ export class RestaurantsModel extends BaseModel {
                 },
                 {$unwind: {path: "$user", preserveNullAndEmptyArrays: true}},
                 {
+                    $lookup: {
+                        from: 'reviews',
+                        let: {restaurantId: '$_id', userId: user_id},
+                        pipeline: [
+                            {$match: {$expr: {$and: [{$eq: ['$restaurant_id', '$$restaurantId']}, {$eq: ['$user_id', '$$userId']}]}}}
+                        ],
+                        as: 'user_review'
+                    }
+                },
+                {
                     $addFields: {
                         avg_rating: {$ifNull: [{$arrayElemAt: ['$reviews.avgRating', 0]}, 0]},
                         totalReviews: {$ifNull: [{$arrayElemAt: ['$reviews.totalReviews', 0]}, 0]},
-                        isFavourite: {$cond: {if: {$gt: [{$size: '$user_favorite'}, 0]}, then: true, else: false}}
+                        isFavourite: {$cond: {if: {$gt: [{$size: '$user_favorite'}, 0]}, then: true, else: false}},
+                        isReviewed: {$cond: {if: {$gt: [{$size: '$user_review'}, 0]}, then: true, else: false}}
                     }
                 },
                 {

@@ -1,7 +1,7 @@
 import {BaseController} from "../../controllers/api/baseController";
 import { RestaurantsService} from "./restaurantsService";
 import { AuthService} from "../_Auth/authService";
-import {DEFAULT_ORDER, DESC} from "../../utils/constants";
+import {ASC, DEFAULT_ORDER, DESC} from "../../utils/constants";
 import {ObjectId} from "mongodb";
 import {Utils} from "../../utils/utils";
 import {AuthModel} from "../_Auth/authModel";
@@ -155,7 +155,11 @@ export class RestaurantsController extends BaseController {
             }
             if (param.order_by) {
                 order = { [param.order_by]: parseInt(param?.order) || DESC }
+            }else{
+                order = {isFeatured:DESC}
             }
+
+
 
             const result = await this.service.getAll(order, param, filter,user?._id);
             return res.status(result.status_code).send(result.body);
