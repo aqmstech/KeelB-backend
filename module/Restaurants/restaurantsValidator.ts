@@ -4,6 +4,7 @@ export const addRestaurantsValidator = Joi.object().keys(
     {
         name: Joi.string().min(2).max(255).required(),
         cover_image: Joi.string().min(2).max(255).optional(),
+        image: Joi.string().min(2).max(255).optional(),
         description: Joi.string().min(2).required(),
         address: Joi.string().min(2),
         user_id: Joi.string().min(2).max(255),
@@ -36,6 +37,7 @@ export const updateRestaurantsValidator = Joi.object().keys(
     {
             name: Joi.string().min(2).max(255).required(),
             cover_image: Joi.string().min(2).max(255).optional(),
+            image: Joi.string().min(2).max(255).optional(),
             description: Joi.string().min(2).required(),
             address: Joi.string().min(2),
             user_id: Joi.string().min(2).max(255),
@@ -68,6 +70,7 @@ export const getAllRestaurantsValidator = Joi.object().keys(
     {
         name: Joi.string().min(2).max(255),
         cover_image: Joi.string().min(2).max(255),
+        image: Joi.string().min(2).max(255).optional(),
         description: Joi.string().min(2),
         address: Joi.string().min(2),
         user_id: Joi.string().min(2).max(255),

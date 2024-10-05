@@ -17,6 +17,10 @@ export class RestaurantsModel extends BaseModel {
                 "type": "string"
             },
             {
+                "column": "image",
+                "type": "string"
+            },
+            {
                 "column": "description",
                 "type": "string"
             },
