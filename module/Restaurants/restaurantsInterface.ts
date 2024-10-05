@@ -1,6 +1,7 @@
 export interface RestaurantsInterface {
   name: string,
   cover_image: string,
+  image: string,
   description: string,
   address?: string,
   user_id?: string,
