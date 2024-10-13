@@ -1,3 +1,5 @@
+import RestaurantStatus from "../../utils/enums/restaurantStatus";
+
 const Joi = require('joi');
 
 export const addRestaurantsValidator = Joi.object().keys(
@@ -7,6 +9,7 @@ export const addRestaurantsValidator = Joi.object().keys(
         image: Joi.string().min(2).max(255).optional().allow(null),
         description: Joi.string().min(2).required(),
         address: Joi.string().min(2),
+        reason: Joi.string().min(2),
         user_id: Joi.string().min(2).max(255),
         min_price: Joi.number().required(),
         max_price: Joi.number().required(),
@@ -26,7 +29,7 @@ export const addRestaurantsValidator = Joi.object().keys(
         service_types: Joi.string().valid('dine in', 'dine in/delivery', 'delivery'),
         service_time: Joi.any(),
         isFeatured: Joi.boolean(),
-        isVerified: Joi.boolean(),
+        isVerified: Joi.string().valid(RestaurantStatus.ACCEPTED,RestaurantStatus.PENDING,RestaurantStatus.REJECTED),
         status: Joi.string().valid('open', 'close'),
         updatedAt: Joi.date(),
         deletedAt: Joi.date()
@@ -40,6 +43,7 @@ export const updateRestaurantsValidator = Joi.object().keys(
             image: Joi.string().min(2).max(255).optional(),
             description: Joi.string().min(2).required(),
             address: Joi.string().min(2),
+            reason: Joi.string().min(2),
             user_id: Joi.string().min(2).max(255),
             min_price: Joi.number().required(),
             max_price: Joi.number().required(),
@@ -59,10 +63,17 @@ export const updateRestaurantsValidator = Joi.object().keys(
             service_types: Joi.string().valid('dine in', 'dine in/delivery', 'delivery'),
             service_time: Joi.any(),
             isFeatured: Joi.boolean(),
-            isVerified: Joi.boolean(),
+            isVerified: Joi.string().valid(RestaurantStatus.ACCEPTED,RestaurantStatus.PENDING,RestaurantStatus.REJECTED),
             status: Joi.string().valid('open', 'close'),
             updatedAt: Joi.date(),
             deletedAt: Joi.date()
+    }
+);
+
+export const updateRestaurantsStatusValidator = Joi.object().keys(
+    {
+        isVerified: Joi.string().valid(RestaurantStatus.ACCEPTED,RestaurantStatus.PENDING,RestaurantStatus.REJECTED),
+        reason: Joi.string().min(2),
     }
 );
 
@@ -73,6 +84,7 @@ export const getAllRestaurantsValidator = Joi.object().keys(
         image: Joi.string().min(2).max(255).optional(),
         description: Joi.string().min(2),
         address: Joi.string().min(2),
+        reason: Joi.string().min(2),
         user_id: Joi.string().min(2).max(255),
         min_price: Joi.number(),
         max_price: Joi.number(),
@@ -95,7 +107,7 @@ export const getAllRestaurantsValidator = Joi.object().keys(
         service_types: Joi.string().valid('dine in', 'dine in/delivery', 'delivery'),
         service_time: Joi.any(),
         isFeatured: Joi.boolean(),
-        isVerified: Joi.boolean(),
+        isVerified: Joi.string().valid(RestaurantStatus.ACCEPTED,RestaurantStatus.PENDING,RestaurantStatus.REJECTED),
         status: Joi.string().valid('open', 'close'),
         createdAt: Joi.date(),
         updatedAt: Joi.date(),

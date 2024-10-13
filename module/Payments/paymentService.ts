@@ -229,7 +229,7 @@ export class PaymentService {
                                     logo =  ''
                                 }
 
-                                await Mail.sendEmail(
+                                await Mail.sendSMTPEmail(
                                     donation?.email,
                                     "Donation Receipt",
                                     {
