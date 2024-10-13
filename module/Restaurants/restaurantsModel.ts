@@ -106,11 +106,15 @@ export class RestaurantsModel extends BaseModel {
             },
             {
                 "column": "isVerified",
-                "type": "boolean"
+                "type": "string"
             },
             {
                 "column": "status",
                 "type": "enum"
+            },
+            {
+                "column": "reason",
+                "type": "string"
             },
             {
                 "column": "createdAt",

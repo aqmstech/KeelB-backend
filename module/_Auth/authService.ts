@@ -17,6 +17,7 @@ import { AccountdeletionsModel } from '../_Accountdeletions/accountdeletionsMode
 import {DEFAULT_ORDER, PAGE, PER_PAGE} from "../../utils/constants";
 import UserRoles from "../../utils/enums/userRoles";
 import {RestaurantsModel} from "../Restaurants/restaurantsModel";
+import MailTemplates from "../../utils/enums/mailTemplates";
 const  StripeService = require('../Stripe/stripeCustom')
 
 export class AuthService extends BaseService {
@@ -152,26 +153,14 @@ export class AuthService extends BaseService {
             if (authType === "phone") {
                 await Utils.sendMessage(phone)
             } else {
-                // Mail.SendEmail(
-                //     {
-                //         to: req.body.email,
-                //         subject: "Verify your account",
-                //         id: user._id,
-                //         data: { otp_code: otp },
-                //         // projectName: "auth_service_test_project",
-                //         templateName: "verify_account_template",
-                //     },
-                //     "registration-mail"
-                // );
-
-                // await Mail.sendEmail(
-                //     req.body.email,
-                //     "Verify your account",
-                //     { otp: otp ,
-                //         user:user?.fullName || 'User'},
-                //     "verify_account_template",
-                //     "SendMessage"
-                // );
+                await Mail.sendSMTPEmail(
+                    req.body.email,
+                    "Verify your account",
+                    { otp: otp ,
+                        user:user?.fullName || 'User'},
+                    MailTemplates.VERIFY_ACCOUNT,
+                    "SendMessage"
+                );
             }
 
             const userDevice: UserdevicesInterface = {
@@ -673,12 +662,12 @@ export class AuthService extends BaseService {
                 200
             );
 
-            await Mail.sendEmail(
+            await Mail.sendSMTPEmail(
                 req.body.email,
-                "Verify your account",
+                "Request to Resend OTP Code",
                 { otp: otp ,
                     user:user?.fullName || 'User'},
-                "verify_account_template",
+                MailTemplates.RESEND_OTP,
                 "SendMessage"
             );
 
@@ -936,12 +925,12 @@ export class AuthService extends BaseService {
             const currentTime = new Date().getTime();
             const otpExpiresIn = (currentTime + OTP_EXPIRY_IN_MINUTES).toString();
 
-            await Mail.sendEmail(
+            await Mail.sendSMTPEmail(
                 req.body.email,
                 "Verify your account",
                 { otp: otp ,
                        user:user?.fullName || 'User'},
-                "verify_account_template",
+                MailTemplates.RESET_PASSWORD,
                 "SendMessage"
             );
 

@@ -6,6 +6,7 @@ import {ObjectId} from "mongodb";
 import {Utils} from "../../utils/utils";
 import {AuthModel} from "../_Auth/authModel";
 import UserRoles from "../../utils/enums/userRoles";
+import RestaurantStatus from "../../utils/enums/restaurantStatus";
 
 export class RestaurantsController extends BaseController {
     private authModel: AuthModel
@@ -28,10 +29,10 @@ export class RestaurantsController extends BaseController {
             }
 
             if(req?.auth?.role == UserRoles.USER){
-                filter.isVerified= true
+                filter.isVerified= RestaurantStatus.ACCEPTED
             }else{
                 if(param.isVerified !== undefined) {
-                    filter.isVerified = param.isVerified == 1 ? true : false
+                    filter.isVerified = param.isVerified
                 }
             }
 
@@ -188,6 +189,13 @@ export class RestaurantsController extends BaseController {
         if( req.body.categories?.length){
             req.body.categories = req.body.categories?.map((item:string)=> new ObjectId(item))
         }
+
+        if(req.auth.role == UserRoles.ADMIN || req.auth.role == UserRoles.SUB_ADMIN ){
+            req.body.isVerified = RestaurantStatus.ACCEPTED
+        }else{
+            req.body.isVerified = RestaurantStatus.PENDING
+        }
+
         let user = await this.authModel.GetOne({_id:new ObjectId(req?.auth?._id)});
         await this.authModel.Update(req?.auth?._id,{
             additionalFields:{
@@ -203,6 +211,18 @@ export class RestaurantsController extends BaseController {
             req.body.categories = req.body.categories?.map((item:string)=> new ObjectId(item))
         }
         return super.update(req, res)
+    };
+
+    async updateStatus(req: any, res: any) {
+        try {
+            const result = await this.service.updateStatus(req, res);
+            return res.status(result.status_code).send(result.body);
+
+        } catch (error) {
+            console.log(error, 'update');
+            const error_result = Utils.getResponse(false, "Something went wrong", error, 500, 1005);
+            return res.status(error_result.status_code).send(error_result.body);
+        }
     };
 
     async delete(req: any, res: any) {

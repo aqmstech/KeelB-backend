@@ -12,6 +12,7 @@ import {RMQ} from './server/queues/rabbitmq';
 import {DefaultDatabase} from './databases/database';
 import {SQS} from './server/queues/sqs';
 import {CronJobs} from './crons/cron';
+import { Mail } from './module/_Services/Email_Service/mail';
 
 
 // // Instead of:
@@ -140,6 +141,8 @@ export class Application {
                     SQS.Queues[queue.name] = new SQS(Application.conf.AWS.sqs, queue.name, queue.url);
                 });
             }
+            // Initialize the email service transporter
+            Mail.configureTransporter();
 
             this.httpServer = HTTPServer.INIT(env.config, test);
             Object.seal(this.httpServer);
