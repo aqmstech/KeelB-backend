@@ -7,14 +7,10 @@ import fs from 'fs/promises';
 import upath from 'upath';
 import nodemailer, { Transporter } from 'nodemailer';
 import { Twilio } from 'twilio';
-import {AuthModel} from "../module/_Auth/authModel";
-import {UserdevicesModel} from "../module/_Userdevices/userdevicesModel";
-import {SocialaccountsModel} from "../module/_Socialaccounts/socialaccountsModel";
-import {DonationsModel} from "../module/Donations/donationsModel";
 
 export class Utils {
     // private static salt = Application.conf?.ENCRYPTION.salt
-    private static donationsModel: DonationsModel = new DonationsModel();
+    // private static donationsModel: DonationsModel = new DonationsModel();
 
     /**
      *
@@ -340,14 +336,14 @@ export class Utils {
     }
 
     public static async generateUniqueFiveDigitNumber() {
-         let donations = await this.donationsModel.findAllByQuery({})
-        console.log(donations,"donations")
-        let generatedNumbers : any = donations.map((item:any)=>item.donation_number)
-        console.log(generatedNumbers,"generatedNumbers")
-        let uniqueNum;
-        do {
-            uniqueNum = Math.floor(10000 + Math.random() * 90000);
-        } while (generatedNumbers?.includes(uniqueNum));
-        return uniqueNum?.toString();
+        //  let donations = await this.donationsModel.findAllByQuery({})
+        // console.log(donations,"donations")
+        // let generatedNumbers : any = donations.map((item:any)=>item.donation_number)
+        // console.log(generatedNumbers,"generatedNumbers")
+        // let uniqueNum;
+        // do {
+        //     uniqueNum = Math.floor(10000 + Math.random() * 90000);
+        // } while (generatedNumbers?.includes(uniqueNum));
+        // return uniqueNum?.toString();
     }
 }
