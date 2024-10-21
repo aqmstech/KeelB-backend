@@ -29,7 +29,6 @@ import * as StatesRouter from '../module/_States/statesRoutes'
 import * as CityRouter from '../module/_City/cityRoutes'
 import * as NotificationsRouter from '../module/Notifications/notificationsRoutes'
 import * as PaymentRouter from '../module/Payments/paymentRoutes'
-import * as DonationRouter from '../module/Donations/donationsRoutes'
 import * as UserCardsRouter from '../module/UserCards/usercardsRoutes'
 import * as ContactUsRouter from '../module/ContactUs/contactusRoutes'
 import * as RecentSearchesRouter from '../module/RecentSearches/recentsearchesRoutes'
@@ -108,7 +107,6 @@ export class HTTPServer {
         
         this.server.app.use("/api/v1/notifications", NotificationsRouter.router)
         // this.server.app.use("/api/v1/payment", PaymentRouter.router)
-        // this.server.app.use("/api/v1/donation", DonationRouter.router)
         // this.server.app.use("/api/v1/card", UserCardsRouter.router)
         this.server.app.use("/api/v1/contact-us", ContactUsRouter.router)
         this.server.app.use("/api/v1/categories", CategoriesRouter.router)

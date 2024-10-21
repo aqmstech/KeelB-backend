@@ -4,14 +4,13 @@ import PaymentStatus from "../../utils/enums/paymentStatus";
 import { Utils } from "../../utils/utils";
 import { AuthModel } from "../_Auth/authModel";
 import {Payment} from "../_Services/Payment_Service_v2/payment";
-import {DonationsModel} from "../Donations/donationsModel";
 import {APPLE, GOOGLE} from "../../utils/constants";
 import {Mail} from "../_Services/Email_Service/mail";
 const StripeSdk = require('stripe');
 const stripeCustom = require("../Stripe/stripeCustom");
 export class PaymentService {
     private static authModel: AuthModel = new AuthModel();
-    private static donationModel: DonationsModel = new DonationsModel();
+    // private static donationModel: DonationsModel = new DonationsModel();
 
     public static async proceedPayment(req: any){
         let {
@@ -206,73 +205,73 @@ export class PaymentService {
                     let user = await this.authModel.GetOne({_id:new ObjectId(user_id)})
                     if (user) {
                         if (body.donation_id) {
-                            let donation: any = await this.donationModel.GetOne({_id:new ObjectId(body.donation_id)});
-
-                            if (!donation) {
-                                return Utils.getResponse(false, "Donation Id is not valid", null, 404);
-                            }
-
-
-                            if (body.payment_status == PaymentStatus.PAID) {
-                                await this.donationModel.Update(
-                                    new ObjectId(body.donation_id),
-                                    {status: PaymentStatus.PAID}
-                                );
+                            // let donation: any = await this.donationModel.GetOne({_id:new ObjectId(body.donation_id)});
+                            //
+                            // if (!donation) {
+                            //     return Utils.getResponse(false, "Donation Id is not valid", null, 404);
+                            // }
 
 
-                                let logo;
-                                if(donation?.payment_method_type == PaymentMethodTypes.GOOGLE){
-                                    logo =  GOOGLE
-                                }else if(donation?.payment_method_type == PaymentMethodTypes.GOOGLE){
-                                    logo =  APPLE
-                                }else{
-                                    logo =  ''
-                                }
-
-                                await Mail.sendSMTPEmail(
-                                    donation?.email,
-                                    "Donation Receipt",
-                                    {
-                                        donation_id:  donation?.donation_id ,
-                                        date: Utils.getCurrentDateUSFormat() ,
-                                        name: donation?.donor_name ,
-                                        description: donation?.purpose ,
-                                        amount:  donation?.amount ,
-                                        total_amount: donation?.amount ,
-                                        image: logo ,
-                                    },
-                                    "donation_template",
-                                    "SendMessage"
-                                );
-
-                                    // const fcm_data: any = {
-                                    //     sender_id: user._id,
-                                    //     receiver_id: trainer._id,
-                                    //     module: "appointment_request",
-                                    //     module_id: appointment?._id,
-                                    //     title: "Libido Health",
-                                    //     body: `New appointment request from client. Review and respond.`,
-                                    // };
-                                    // await PushNotification.send(fcm_data);
-
-
-
-                            } else if (body.payment_status == PaymentStatus.FAILED) {
-                                let donation_id = await this.donationModel.Update(
-                                    new ObjectId(body.donation_id),
-                                    {status: PaymentStatus.PAID}
-                                );
-
-                                // const fcm_data: any = {
-                                //     sender_id: user._id,
-                                //     receiver_id: user._id,
-                                //     module: "appointment_request",
-                                //     module_id: appointment_id,
-                                //     title: "Libido Health",
-                                //     body: `Payment failed. Try again later.`,
-                                // };
-                                // await PushNotification.send(fcm_data);
-                            }
+                            // if (body.payment_status == PaymentStatus.PAID) {
+                            //     // await this.donationModel.Update(
+                            //     //     new ObjectId(body.donation_id),
+                            //     //     {status: PaymentStatus.PAID}
+                            //     // );
+                            //
+                            //
+                            //     let logo;
+                            //     if(donation?.payment_method_type == PaymentMethodTypes.GOOGLE){
+                            //         logo =  GOOGLE
+                            //     }else if(donation?.payment_method_type == PaymentMethodTypes.GOOGLE){
+                            //         logo =  APPLE
+                            //     }else{
+                            //         logo =  ''
+                            //     }
+                            //
+                            //     await Mail.sendSMTPEmail(
+                            //         donation?.email,
+                            //         "Donation Receipt",
+                            //         {
+                            //             donation_id:  donation?.donation_id ,
+                            //             date: Utils.getCurrentDateUSFormat() ,
+                            //             name: donation?.donor_name ,
+                            //             description: donation?.purpose ,
+                            //             amount:  donation?.amount ,
+                            //             total_amount: donation?.amount ,
+                            //             image: logo ,
+                            //         },
+                            //         "donation_template",
+                            //         "SendMessage"
+                            //     );
+                            //
+                            //         // const fcm_data: any = {
+                            //         //     sender_id: user._id,
+                            //         //     receiver_id: trainer._id,
+                            //         //     module: "appointment_request",
+                            //         //     module_id: appointment?._id,
+                            //         //     title: "Libido Health",
+                            //         //     body: `New appointment request from client. Review and respond.`,
+                            //         // };
+                            //         // await PushNotification.send(fcm_data);
+                            //
+                            //
+                            //
+                            // } else if (body.payment_status == PaymentStatus.FAILED) {
+                            //     // let donation_id = await this.donationModel.Update(
+                            //     //     new ObjectId(body.donation_id),
+                            //     //     {status: PaymentStatus.PAID}
+                            //     // );
+                            //
+                            //     // const fcm_data: any = {
+                            //     //     sender_id: user._id,
+                            //     //     receiver_id: user._id,
+                            //     //     module: "appointment_request",
+                            //     //     module_id: appointment_id,
+                            //     //     title: "Libido Health",
+                            //     //     body: `Payment failed. Try again later.`,
+                            //     // };
+                            //     // await PushNotification.send(fcm_data);
+                            // }
 
                         }
 
@@ -297,40 +296,40 @@ export class PaymentService {
                 let body = payload?.data?.object?.metadata
                 body.payment_status = PaymentStatus.FAILED
                 if (body) {
-                    let user_id = body.user_id
-                    let user = await this.authModel.GetOne({_id:new ObjectId(user_id)})
-                    if (user) {
-                        if (body.donation_id) {
-                            let donation: any = await this.donationModel.GetOne({_id:new ObjectId(body.donation_id)});
-
-                            if (!donation) {
-                                return Utils.getResponse(false, "Donation Id is not valid", null, 404);
-                            }
-
-                            if (body.payment_status == PaymentStatus.FAILED) {
-                                await this.donationModel.Update(
-                                    new ObjectId(body.donation_id),
-                                    {status: PaymentStatus.FAILED}
-                                );
-
-                                // const fcm_data: any = {
-                                //     sender_id: user._id,
-                                //     receiver_id: trainer._id,
-                                //     module: "appointment_request",
-                                //     module_id: appointment?._id,
-                                //     title: "Libido Health",
-                                //     body: `New appointment request from client. Review and respond.`,
-                                // };
-                                // await PushNotification.send(fcm_data);
-
-
-                            }
-
-                        }
-
-
-
-                    }
+                    // let user_id = body.user_id
+                    // let user = await this.authModel.GetOne({_id:new ObjectId(user_id)})
+                    // if (user) {
+                    //     if (body.donation_id) {
+                    //         let donation: any = await this.donationModel.GetOne({_id:new ObjectId(body.donation_id)});
+                    //
+                    //         if (!donation) {
+                    //             return Utils.getResponse(false, "Donation Id is not valid", null, 404);
+                    //         }
+                    //
+                    //         if (body.payment_status == PaymentStatus.FAILED) {
+                    //             await this.donationModel.Update(
+                    //                 new ObjectId(body.donation_id),
+                    //                 {status: PaymentStatus.FAILED}
+                    //             );
+                    //
+                    //             // const fcm_data: any = {
+                    //             //     sender_id: user._id,
+                    //             //     receiver_id: trainer._id,
+                    //             //     module: "appointment_request",
+                    //             //     module_id: appointment?._id,
+                    //             //     title: "Libido Health",
+                    //             //     body: `New appointment request from client. Review and respond.`,
+                    //             // };
+                    //             // await PushNotification.send(fcm_data);
+                    //
+                    //
+                    //         }
+                    //
+                    //     }
+                    //
+                    //
+                    //
+                    // }
                 }
                 // let transaction_data = {
                 //     user_id: new ObjectId(body?.user),

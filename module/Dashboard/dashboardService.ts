@@ -1,7 +1,5 @@
 import { ObjectId } from "mongodb";
 import { AuthModel } from "../_Auth/authModel";
-import {DonationsModel} from "../Donations/donationsModel";
-import PaymentStatus from "../../utils/enums/paymentStatus";
 import {Utils} from "../../utils/utils";
 import {RestaurantsModel} from "../Restaurants/restaurantsModel";
 import {ReviewsModel} from "../Reviews/reviewsModel";
